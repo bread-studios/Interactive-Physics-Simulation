@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        //makes all camera speeds positive
         if (cameraSpeed < 0)
             cameraSpeed *= -1;
     }
