@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54677711757964280}
   - component: {fileID: 64593845489841552}
   m_Layer: 0
-  m_Name: RigidRamp 1
+  m_Name: RigidRamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
