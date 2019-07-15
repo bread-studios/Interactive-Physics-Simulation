@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 282840814}
+  cameraSpeed: 5
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

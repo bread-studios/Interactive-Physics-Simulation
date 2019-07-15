@@ -11,6 +11,13 @@ public class CameraController : MonoBehaviour
     float pitch = 0.0f;
 
     public Transform transform;
+    public float cameraSpeed = 5.0f;
+
+    void Start()
+    {
+        if (cameraSpeed < 0)
+            cameraSpeed *= -1;
+    }
 
 	// Update is called once per frame
 	void Update ()
@@ -26,34 +33,32 @@ public class CameraController : MonoBehaviour
         //moves forward
         if (Input.GetKey(KeyCode.W))
         {
-            movement += new Vector3(0, 0, 1);
+            transform.position += Camera.main.transform.forward * Time.deltaTime * cameraSpeed;
         }
         //moves backward
         if (Input.GetKey(KeyCode.S))
         {
-            movement += new Vector3(0, 0, -1);
+            transform.position += -Camera.main.transform.forward * Time.deltaTime * cameraSpeed;
         }
         //moves right
         if (Input.GetKey(KeyCode.D))
         {
-            movement += new Vector3(1, 0, 0);
+            transform.position += Camera.main.transform.right * Time.deltaTime * cameraSpeed;
         }
         //moves left
         if (Input.GetKey(KeyCode.A))
         {
-            movement += new Vector3(-1, 0, 0);
+            transform.position += -Camera.main.transform.right * Time.deltaTime * cameraSpeed;
         }
         //moves up
         if (Input.GetKey(KeyCode.Q))
         {
-            movement += new Vector3(0, 1, 0);
+            transform.position += Camera.main.transform.up * Time.deltaTime * cameraSpeed;
         }
         //moves down
         if (Input.GetKey(KeyCode.Z))
         {
-            movement += new Vector3(0, -1, 0);
+            transform.position += -Camera.main.transform.up * Time.deltaTime * cameraSpeed;
         }
-
-        transform.position += movement;
 	}
 }
