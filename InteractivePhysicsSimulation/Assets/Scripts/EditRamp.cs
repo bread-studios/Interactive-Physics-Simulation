@@ -16,11 +16,11 @@ public class EditRamp : MonoBehaviour
     {
         if (angle <= 0)
         {
-            angle = 0.01f;
+            angle = 0.001f;
         }
         if (angle >= 90)
         {
-            angle = 89.99f;
+            angle = 89.999f;
         }
         trueAngle = angle * Mathf.Deg2Rad;
         yScale = transform.localScale.y;

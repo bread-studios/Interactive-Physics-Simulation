@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class RigidBodyManager : MonoBehaviour
 {
+    private GameObject Manager;
+    private PlayingManager pm;
+    private bool IsPlayingDelayed;
     Vector3 vel;
     Vector3 rot;
-    bool paused = false;
     // Use this for initialization
     void Start()
     {
-
+        Manager = GameObject.FindWithTag("Manager");
+        pm = Manager.GetComponent<PlayingManager>();
+        freezeComponent(GetComponent<Rigidbody>(), true);
     }
 
     //If press space, toggle pause
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyUp("space") && paused)
+        if (pm.IsPlaying!=IsPlayingDelayed)
         {
-            //Debug.Log("Unpaused");
-            freezeComponent(GetComponent<Rigidbody>(), false);
+            if (pm.IsPlaying == true) { freezeComponent(GetComponent<Rigidbody>(), false); } else if (pm.IsPlaying == false) { freezeComponent(GetComponent<Rigidbody>(), true); }
         }
-        else if (Input.GetKeyUp("space") && paused == false)
-        {
-            //Debug.Log("Paused");
-            freezeComponent(GetComponent<Rigidbody>(), true);
-        }
+        IsPlayingDelayed = pm.IsPlaying;
     }
 
     /*Public method that freezes one specific object mid-air
@@ -36,7 +35,6 @@ public class RigidBodyManager : MonoBehaviour
     {
         if (pause == true)
         {
-            paused = true;
             vel = r.velocity;
             rot = r.angularVelocity;
             //Debug.Log(vel + ", " + rot);
@@ -46,7 +44,6 @@ public class RigidBodyManager : MonoBehaviour
         }
         else
         {
-            paused = false;
             r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ);
@@ -54,11 +51,6 @@ public class RigidBodyManager : MonoBehaviour
             r.angularVelocity = rot;
             //Debug.Log(vel + ", " + rot);
         }
-    }
-
-    public float getVelocity()
-    {
-        return 1f;
     }
 
     /*public float getAcceleration()

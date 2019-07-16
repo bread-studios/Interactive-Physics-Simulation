@@ -9,7 +9,7 @@ public class SelectObjectOnScreen : MonoBehaviour {
 
     private void Start()
     {
-        Manager = GameObject.FindGameObjectWithTag("Manager");
+        Manager = GameObject.FindWithTag("Manager");
         sm = Manager.GetComponent<SelectionManager>();
     }
 
