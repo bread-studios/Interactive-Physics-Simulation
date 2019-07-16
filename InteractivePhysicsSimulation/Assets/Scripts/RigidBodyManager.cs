@@ -18,12 +18,12 @@ public class RigidBodyManager : MonoBehaviour
     {
         if (Input.GetKeyUp("space") && paused)
         {
-            Debug.Log("Unpaused");
+            //Debug.Log("Unpaused");
             freezeComponent(GetComponent<Rigidbody>(), false);
         }
         else if (Input.GetKeyUp("space") && paused == false)
         {
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
             freezeComponent(GetComponent<Rigidbody>(), true);
         }
     }
@@ -39,7 +39,7 @@ public class RigidBodyManager : MonoBehaviour
             paused = true;
             vel = r.velocity;
             rot = r.angularVelocity;
-            Debug.Log(vel + ", " + rot);
+            //Debug.Log(vel + ", " + rot);
             r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ;
@@ -52,7 +52,7 @@ public class RigidBodyManager : MonoBehaviour
             RigidbodyConstraints.FreezePositionZ);
             r.velocity = vel;
             r.angularVelocity = rot;
-            Debug.Log(vel + ", " + rot);
+            //Debug.Log(vel + ", " + rot);
         }
     }
 
