@@ -16,7 +16,7 @@ public class PlayingManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("p"))
         {
             TogglePlayPause();
         }
