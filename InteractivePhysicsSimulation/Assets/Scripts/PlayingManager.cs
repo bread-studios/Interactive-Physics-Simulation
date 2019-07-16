@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayingManager : MonoBehaviour {
 
+
     /*private RigidBodyManager rbm;
 
     private void Start()
@@ -15,7 +16,7 @@ public class PlayingManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKeyUp("space"))
         {
             TogglePlayPause();
         }

@@ -22,7 +22,14 @@ public class RigidBodyManager : MonoBehaviour
     {
         if (pm.IsPlaying!=IsPlayingDelayed)
         {
-            if (pm.IsPlaying == true) { freezeComponent(GetComponent<Rigidbody>(), false); } else if (pm.IsPlaying == false) { freezeComponent(GetComponent<Rigidbody>(), true); }
+            if (pm.IsPlaying == true)
+            {
+                freezeComponent(GetComponent<Rigidbody>(), false);
+            }
+            else if (pm.IsPlaying == false)
+            {
+                freezeComponent(GetComponent<Rigidbody>(), true);
+            }
         }
         IsPlayingDelayed = pm.IsPlaying;
     }
