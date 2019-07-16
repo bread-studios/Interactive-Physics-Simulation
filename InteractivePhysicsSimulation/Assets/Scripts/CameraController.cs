@@ -54,12 +54,12 @@ public class CameraController : MonoBehaviour
             transform.position += -Camera.main.transform.right * Time.deltaTime * cameraSpeed;
         }
         //moves up
-        if (Input.GetKey("space") && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey("space"))
         {
             transform.position += Camera.main.transform.up * Time.deltaTime * cameraSpeed;
         }
         //moves down
-        if (Input.GetKey("space") && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             transform.position += -Camera.main.transform.up * Time.deltaTime * cameraSpeed;
         }
