@@ -23,11 +23,15 @@ public class CameraController : MonoBehaviour
     {
         //controls camera
         //yaw is inverted
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
-        pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
-        transform.eulerAngles = new Vector3(pitch, yaw + 90, 0.0f);
+        Cursor.visible = true;
+        
+        if (Input.GetMouseButton(1))
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
+            pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
+            transform.eulerAngles = new Vector3(pitch, yaw + 90, 0.0f);
+        }
 
         //moves forward
         if (Input.GetKey(KeyCode.W))
