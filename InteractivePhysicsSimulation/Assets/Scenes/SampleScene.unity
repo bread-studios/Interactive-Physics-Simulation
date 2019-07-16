@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -155,6 +155,10 @@ Prefab:
     - target: {fileID: 1997613620225914, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997613620225914, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
+      propertyPath: m_TagString
+      value: Object
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
@@ -255,6 +259,22 @@ MonoBehaviour:
   mouseSensitivityVertical: 2
   mouseSensitivityHorizontal: 2
   cameraSpeed: 5
+--- !u!1 &746700261 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1875592711511954, guid: 97b7eb8004dd5504aa86b98384515b04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1835761284}
+--- !u!114 &746700266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746700261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d1c28d20d7e6f44b5c82a65342313a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &791842430
 Prefab:
   m_ObjectHideFlags: 0
@@ -294,9 +314,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1745974022064428, guid: e06be632ea950354ebf701b605a91291, type: 2}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e06be632ea950354ebf701b605a91291, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &867766399 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1745974022064428, guid: e06be632ea950354ebf701b605a91291,
+    type: 2}
+  m_PrefabInternal: {fileID: 791842430}
+--- !u!114 &867766406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 867766399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d1c28d20d7e6f44b5c82a65342313a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947371426
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +599,7 @@ GameObject:
   - component: {fileID: 1515896814}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,6 +629,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1646590875 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1997613620225914, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
+    type: 2}
+  m_PrefabInternal: {fileID: 20908010}
+--- !u!114 &1646590883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1646590875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d1c28d20d7e6f44b5c82a65342313a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1835761284
 Prefab:
   m_ObjectHideFlags: 0
@@ -627,6 +683,10 @@ Prefab:
     - target: {fileID: 4288845470634288, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875592711511954, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
+      propertyPath: m_TagString
+      value: Object
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
@@ -687,9 +747,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.39215687}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.39215687}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.39215687}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
