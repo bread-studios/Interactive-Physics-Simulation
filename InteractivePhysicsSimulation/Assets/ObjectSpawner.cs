@@ -7,19 +7,13 @@ public class ObjectSpawner : MonoBehaviour {
 
     public GameObject prefab;
     public Transform spawn;
-    private ArrayList objects;
-
-    private void Start()
-    {
-        objects = new ArrayList();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButtonDown(2))
         {
-            StartCoroutine("SpawnBlock");
+            StartCoroutine(SpawnBlock());
         }
     }
 
