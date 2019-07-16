@@ -28,7 +28,8 @@ public class RigidBodyManager : MonoBehaviour
         }
     }
 
-    /*Public method that freezes one specific object mid-air
+   /*
+    * Public method that freezes one specific object mid-air
     * In order to store velocity, global variable vel must be created in each
     * c# script that calls this method without calling this class too
     */
