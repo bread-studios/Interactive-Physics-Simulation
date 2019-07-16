@@ -19,7 +19,8 @@ public class EditRamp : MonoBehaviour
         }
         yScale = transform.localScale.y;
         xScale = transform.localScale.x;
-        zScale = Mathf.Round(Mathf.Rad2Deg * Mathf.Atan(angle * Mathf.Deg2Rad * Mathf.Deg2Rad) * yScale);
+        zScale = Mathf.Rad2Deg * Mathf.Atan(angle * Mathf.Deg2Rad * Mathf.Deg2Rad) * yScale;
         transform.localScale = new Vector3(xScale, yScale, zScale);
-	}
+        Debug.Log(xScale+","+yScale+","+zScale);
+    }
 }
