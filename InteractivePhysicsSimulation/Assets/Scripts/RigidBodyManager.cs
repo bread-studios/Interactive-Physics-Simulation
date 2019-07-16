@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RigidBodyManager : MonoBehaviour
 {
-    /*Vector3 vel;*/
+    Vector3 vel;
     bool paused = false;
     // Use this for initialization
     void Start()
@@ -36,8 +36,8 @@ public class RigidBodyManager : MonoBehaviour
         if (pause == true)
         {
             paused = true;
-            /*vel = r.velocity;
-            Debug.Log(vel);*/
+            vel = r.velocity;
+            Debug.Log(vel);
             r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ;
@@ -48,8 +48,8 @@ public class RigidBodyManager : MonoBehaviour
             r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ);
-            /*r.velocity = vel;
-            Debug.Log(vel);*/
+            r.velocity = vel;
+            Debug.Log(vel);
         }
     }
 
