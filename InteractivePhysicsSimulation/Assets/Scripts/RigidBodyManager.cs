@@ -5,11 +5,12 @@ using UnityEngine;
 public class RigidBodyManager : MonoBehaviour
 {
     Vector3 vel;
+    Vector3 rot;
     bool paused = false;
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     //If press space, toggle pause
@@ -37,7 +38,8 @@ public class RigidBodyManager : MonoBehaviour
         {
             paused = true;
             vel = r.velocity;
-            Debug.Log(vel);
+            rot = r.angularVelocity;
+            Debug.Log(vel + ", " + rot);
             r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ;
@@ -49,7 +51,8 @@ public class RigidBodyManager : MonoBehaviour
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ);
             r.velocity = vel;
-            Debug.Log(vel);
+            r.angularVelocity = rot;
+            Debug.Log(vel + ", " + rot);
         }
     }
 
