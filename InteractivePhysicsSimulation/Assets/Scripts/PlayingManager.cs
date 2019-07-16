@@ -8,7 +8,7 @@ public class PlayingManager : MonoBehaviour {
 
     public void TogglePlayPause()
     {
-        Debug.Log("toggled play/pause");
         IsPlaying = !IsPlaying;
+
     }
 }
