@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayingManager : MonoBehaviour {
 
-
-    /*private RigidBodyManager rbm;
+    public GameObject PropertiesPanel;
 
     private void Start()
     {
-        rbm = GameObject.FindGameObjectsWithTag("Object");
-    }*/
+        PropertiesPanel.SetActive(true);
+    }
 
     public bool IsPlaying = false;
 
@@ -25,7 +24,14 @@ public class PlayingManager : MonoBehaviour {
 
     public void TogglePlayPause()
     {
-
+        if (PropertiesPanel.activeSelf) //deactivates/activates the properties panel
+        {
+            PropertiesPanel.SetActive(false);
+        }
+        else
+        {
+            PropertiesPanel.SetActive(true);
+        }
         Debug.Log("toggled play/pause");
         IsPlaying = !IsPlaying;
         
