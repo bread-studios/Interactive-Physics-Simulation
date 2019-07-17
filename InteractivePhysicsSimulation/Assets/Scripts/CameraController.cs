@@ -7,30 +7,50 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivityVertical = 2.0f;
     public float mouseSensitivityHorizontal = 2.0f;
     public float cameraSpeed = 5.0f;
+    private Quaternion initRot;
 
     float yaw = 0.0f;
     float pitch = 0.0f;
+    float roll = 0.0f;
 
     void Start()
     {
         //makes all camera speeds positive
         if (cameraSpeed < 0)
+        {
             cameraSpeed *= -1;
+        }
+        initRot = transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //controls camera
-        Cursor.visible = true;
         
         if (Input.GetMouseButton(1))
         {
-            Cursor.lockState = CursorLockMode.Confined;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = false;
             //yaw is inverted
-            yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
-            pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
-            transform.eulerAngles = new Vector3(pitch, yaw + 90, 0.0f);
+
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                roll += mouseSensitivityHorizontal * -Input.GetAxisRaw("Mouse X");
+                pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
+            }
+            else
+            {
+                yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
+                pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
+                roll = 0;
+            }
+            transform.eulerAngles = new Vector3(pitch+initRot.eulerAngles.x, yaw+initRot.eulerAngles.y, roll+initRot.eulerAngles.z);
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         //moves forward

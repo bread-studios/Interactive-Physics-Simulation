@@ -7,8 +7,9 @@ public class RigidBodyManager : MonoBehaviour
     private GameObject Manager;
     private PlayingManager pm;
     private bool IsPlayingDelayed;
-    Vector3 vel;
-    Vector3 rot;
+    public Vector3 vel;
+    public Vector3 rot;
+    public Vector3 acc; //Not used yet
     // Use this for initialization
     void Start()
     {
@@ -44,7 +45,6 @@ public class RigidBodyManager : MonoBehaviour
         {
             vel = r.velocity;
             rot = r.angularVelocity;
-            //Debug.Log(vel + ", " + rot);
             r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
             | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
             RigidbodyConstraints.FreezePositionZ;
@@ -56,7 +56,7 @@ public class RigidBodyManager : MonoBehaviour
             RigidbodyConstraints.FreezePositionZ);
             r.velocity = vel;
             r.angularVelocity = rot;
-            //Debug.Log(vel + ", " + rot);
+
         }
     }
 
