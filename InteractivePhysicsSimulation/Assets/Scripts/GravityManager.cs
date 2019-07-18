@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AccelManager : MonoBehaviour {
+public class GravityManager : MonoBehaviour {
 
     public Vector3 direction;
     Vector3 currentDirection;
