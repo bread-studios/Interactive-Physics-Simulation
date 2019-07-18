@@ -20,6 +20,12 @@ public class RigidBodyManager : MonoBehaviour
 
     private void Update()
     {
+        if (pm.IsPlaying && !(GetComponent<Rigidbody>().constraints == RigidbodyConstraints.FreezeAll))
+        {
+            vel = GetComponent<Rigidbody>().velocity;
+            rot = GetComponent<Rigidbody>().angularVelocity;
+        }
+        
         if (!isStatic)
         {
             if (pm.IsPlaying!=IsPlayingDelayed)
@@ -65,8 +71,8 @@ public class RigidBodyManager : MonoBehaviour
                 r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
                 RigidbodyConstraints.FreezePositionZ);
-                vel = r.velocity;
-                rot = r.angularVelocity;
+                r.velocity = vel;
+                r.angularVelocity = rot;
 
             }
         }
