@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayingManager : MonoBehaviour {
 
+    public GameObject Selected;
     public GameObject PropertiesPanel;
-
+    public SelectedObjectControllerAndSelecter socas;
     private void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -19,12 +20,7 @@ public class PlayingManager : MonoBehaviour {
         {
             TogglePlayPause();
         }
-    }
-
-
-    public void TogglePlayPause()
-    {
-        if (PropertiesPanel.activeSelf) //deactivates/activates the properties panel
+        if(Selected == null)
         {
             PropertiesPanel.SetActive(false);
         }
@@ -32,8 +28,17 @@ public class PlayingManager : MonoBehaviour {
         {
             PropertiesPanel.SetActive(true);
         }
+    }
+
+
+    public void TogglePlayPause()
+    {
         Debug.Log("toggled play/pause");
         IsPlaying = !IsPlaying;
-        
+    }
+    public void ReactToPropertyChange()
+    {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.KidsReactToPropertyDamage();
     }
 }
