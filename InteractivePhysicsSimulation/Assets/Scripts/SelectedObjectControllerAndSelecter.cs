@@ -52,7 +52,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
 
     public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
     {
-        if(amISelected = true)
+        if(amISelected == true)
         {
             
         }
