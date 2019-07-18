@@ -9,8 +9,8 @@ public class RigidBodyManager : MonoBehaviour
     private bool IsPlayingDelayed;
     public Vector3 vel;
     public Vector3 rot;
-    public Vector3 acc; //Not used yet
-    // Use this for initialization
+    public Vector3 acc;//Not used yet
+    public bool isStatic;
     void Start()
     {
         Manager = GameObject.FindWithTag("Manager");
@@ -18,21 +18,30 @@ public class RigidBodyManager : MonoBehaviour
         freezeComponent(GetComponent<Rigidbody>(), true);
     }
 
-    //If press space, toggle pause
     private void Update()
     {
-        if (pm.IsPlaying!=IsPlayingDelayed)
+        if (!isStatic)
         {
-            if (pm.IsPlaying == true)
+            if (pm.IsPlaying!=IsPlayingDelayed)
             {
-                freezeComponent(GetComponent<Rigidbody>(), false);
+                if (pm.IsPlaying == true)
+                {
+                    freezeComponent(GetComponent<Rigidbody>(), false);
+                }
+                else if (pm.IsPlaying == false)
+                {
+                    freezeComponent(GetComponent<Rigidbody>(), true);
+                }
             }
-            else if (pm.IsPlaying == false)
-            {
-                freezeComponent(GetComponent<Rigidbody>(), true);
-            }
+            IsPlayingDelayed = pm.IsPlaying;
         }
-        IsPlayingDelayed = pm.IsPlaying;
+        else
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionZ;
+        }
+        
     }
 
     /*Public method that freezes one specific object mid-air
@@ -41,22 +50,30 @@ public class RigidBodyManager : MonoBehaviour
     */
     public void freezeComponent(Rigidbody r, bool pause)
     {
-        if (pause == true)
+        if (!isStatic)
         {
-            vel = r.velocity;
-            rot = r.angularVelocity;
-            r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
-            | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
-            RigidbodyConstraints.FreezePositionZ;
+            if (pause == true)
+            {
+                vel = r.velocity;
+                rot = r.angularVelocity;
+                r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionZ;
+            }
+            else
+            {
+                r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionZ);
+                vel = r.velocity;
+                rot = r.angularVelocity;
+
+            }
         }
         else
         {
-            r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
-            | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
-            RigidbodyConstraints.FreezePositionZ);
-            r.velocity = vel;
-            r.angularVelocity = rot;
-
+            vel = new Vector3(0, 0, 0);
+            rot = new Vector3(0, 0, 0);
         }
     }
 
