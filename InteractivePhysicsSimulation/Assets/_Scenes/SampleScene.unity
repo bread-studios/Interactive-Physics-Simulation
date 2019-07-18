@@ -412,7 +412,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -885,7 +885,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1515896816}
+      - m_Target: {fileID: 0}
         m_MethodName: ReactToPropertyChange
         m_Mode: 1
         m_Arguments:
@@ -2549,7 +2549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a843e78e3e6074f9d51976d6e856e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Selected: {fileID: 0}
   PropertiesPanel: {fileID: 1973959449}
+  socas: {fileID: 0}
   IsPlaying: 0
 --- !u!4 &1515896815
 Transform:
@@ -2572,10 +2574,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515896813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65276d3a48efb474186d18595f1f0ad4, type: 3}
+  m_Script: {fileID: 11500000, guid: d97259a12b343a24898d1f6049b15082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Selected: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1646590875 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1997613620225914, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
