@@ -11,13 +11,25 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private Material DefaultMat;
     private Renderer rd;
     private RigidBodyManager rbm;
+    private bool isSelected;
+    private HighlightDetectionUI hdui;
+    //UI gameobjects
+    private GameObject playButton;
     private GameObject posX;
     private GameObject posY;
     private GameObject posZ;
     private GameObject rotX;
     private GameObject rotY;
     private GameObject rotZ;
-    private bool isSelected;
+    private GameObject velX;
+    private GameObject velY;
+    private GameObject velZ;
+    private GameObject angularVelX;
+    private GameObject angularVelY;
+    private GameObject angularVelZ;
+    //UI values
+    private float speed;
+
 
     private void Start()
     {
@@ -27,14 +39,25 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         SelectedMat = Resources.Load("Materials/Selected", typeof(Material)) as Material;
         DefaultMat = Resources.Load("Materials/Default", typeof(Material)) as Material;
         rd.material = DefaultMat;
+        playButton = GameObject.FindWithTag("PlayButton");
         rbm = GetComponent<RigidBodyManager>();
+        hdui = playButton.GetComponent<HighlightDetectionUI>();
 
         posX = GameObject.Find("PositionX");
         posY = GameObject.Find("PositionY");
         posZ = GameObject.Find("PositionZ");
+
         rotX = GameObject.Find("RotationX");
         rotY = GameObject.Find("RotationY");
         rotZ = GameObject.Find("RotationZ");
+
+        velX = GameObject.Find("VelocityX");
+        velY = GameObject.Find("VelocityY");
+        velZ = GameObject.Find("VelocityZ");
+
+        angularVelX = GameObject.Find("AngularVelocityX");
+        angularVelY = GameObject.Find("AngularVelocityY");
+        angularVelZ = GameObject.Find("AngularVelocityZ");
     }
     private void Update()
     {
@@ -45,19 +68,21 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     }
     private void OnMouseDown()
     {
-        if(pm.Selected != null)
+        if (!hdui.isPlayButtonHighlighted)
         {
-            pm.Selected = null;
+            if (pm.Selected != null)
+            {
+                pm.Selected = null;
+            }
+            else
+            {
+                pm.Selected = gameObject;
+                rd.material = SelectedMat;
+                StartCoroutine("Waiter");
+                Debug.Log(gameObject.name);
+                Compile();
+            }
         }
-        else
-        {
-            pm.Selected = gameObject;
-            rd.material = SelectedMat;
-            StartCoroutine("Waiter");
-            Debug.Log(gameObject.name);
-            Compile();
-        }
-        
     }
 
 
@@ -65,9 +90,13 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     {
         if(pm.Selected == gameObject)
         {
-            
+            transform.position = new Vector3(float.Parse(posX.GetComponent<InputField>().text), float.Parse(posY.GetComponent<InputField>().text), float.Parse(posZ.GetComponent<InputField>().text));
+            transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            rbm.vel.x = float.Parse(velX.GetComponent<InputField>().text);
+            rbm.vel.y = float.Parse(velY.GetComponent<InputField>().text);
+            rbm.vel.z = float.Parse(velZ.GetComponent<InputField>().text);
         }
-    }
+    }   
 
     public void Compile()//compiles properties together
     {
@@ -84,6 +113,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         floatProperties.Add(rbm.vel.x);
         floatProperties.Add(rbm.vel.y);
         floatProperties.Add(rbm.vel.z);
+        floatProperties.Add(rbm.rot.x);
+        floatProperties.Add(rbm.rot.y);
+        floatProperties.Add(rbm.rot.z);
 
         if (pm.Selected == gameObject)
         {
@@ -95,13 +127,20 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     void TransferToUI()
     {
         Debug.Log("boop2");
+
+        //any edits made here should have a counterpart in "kidsreacttopropertydamage"
         posX.GetComponent<InputField>().text = transform.position.x.ToString();
         posY.GetComponent<InputField>().text = transform.position.y.ToString();
         posZ.GetComponent<InputField>().text = transform.position.z.ToString();
         rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString();
         rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString();
         rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString();
-
+        velX.GetComponent<InputField>().text = rbm.vel.x.ToString();
+        velY.GetComponent<InputField>().text = rbm.vel.y.ToString();
+        velZ.GetComponent<InputField>().text = rbm.vel.z.ToString();
+        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString();
+        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString();
+        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString();
     }
 
     IEnumerator Waiter()
