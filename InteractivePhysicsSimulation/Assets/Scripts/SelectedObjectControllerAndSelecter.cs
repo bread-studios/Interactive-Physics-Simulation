@@ -27,6 +27,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private GameObject angularVelX;
     private GameObject angularVelY;
     private GameObject angularVelZ;
+    private GameObject mass;
     //UI values
     private float speed;
 
@@ -58,6 +59,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         angularVelX = GameObject.Find("AngularVelocityX");
         angularVelY = GameObject.Find("AngularVelocityY");
         angularVelZ = GameObject.Find("AngularVelocityZ");
+
+        mass = GameObject.Find("MassInput");
     }
     private void Update()
     {
@@ -92,9 +95,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         {
             transform.position = new Vector3(float.Parse(posX.GetComponent<InputField>().text), float.Parse(posY.GetComponent<InputField>().text), float.Parse(posZ.GetComponent<InputField>().text));
             transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
-            rbm.vel.x = float.Parse(velX.GetComponent<InputField>().text);
-            rbm.vel.y = float.Parse(velY.GetComponent<InputField>().text);
-            rbm.vel.z = float.Parse(velZ.GetComponent<InputField>().text);
+            rbm.vel = new Vector3(float.Parse(velX.GetComponent<InputField>().text), float.Parse(velY.GetComponent<InputField>().text), float.Parse(velZ.GetComponent<InputField>().text));
+            rbm.rot = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            rbm.mass = float.Parse(mass.GetComponent<InputField>().text);
         }
     }   
 
@@ -102,32 +105,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     {
         //Properties: rbm.vel for velocity, transform.[position, rotation, or maybe scale].[x, y, or z] for transform properties
         /*list order: transform properties(position xyz, and rotation xyz), velocity magnitude, angular velocity magnitude, */
-        Debug.Log("boop1");
-        List<float> floatProperties = new List<float>();
-        floatProperties.Add(transform.position.x);
-        floatProperties.Add(transform.position.y);
-        floatProperties.Add(transform.position.z);
-        floatProperties.Add(transform.rotation.x);
-        floatProperties.Add(transform.rotation.y);
-        floatProperties.Add(transform.rotation.z);
-        floatProperties.Add(rbm.vel.x);
-        floatProperties.Add(rbm.vel.y);
-        floatProperties.Add(rbm.vel.z);
-        floatProperties.Add(rbm.rot.x);
-        floatProperties.Add(rbm.rot.y);
-        floatProperties.Add(rbm.rot.z);
-
-        if (pm.Selected == gameObject)
-        {
-            TransferToUI();
-        }
-
-    }
-
-    void TransferToUI()
-    {
-        Debug.Log("boop2");
-
         //any edits made here should have a counterpart in "kidsreacttopropertydamage"
         posX.GetComponent<InputField>().text = transform.position.x.ToString();
         posY.GetComponent<InputField>().text = transform.position.y.ToString();
@@ -141,8 +118,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString();
         angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString();
         angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString();
+        mass.GetComponent<InputField>().text = rbm.mass.ToString("n10");
     }
-
     IEnumerator Waiter()
     {
         if (pm.Selected == gameObject)

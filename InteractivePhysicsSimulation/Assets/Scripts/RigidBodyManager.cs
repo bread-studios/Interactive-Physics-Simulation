@@ -7,6 +7,7 @@ public class RigidBodyManager : MonoBehaviour
     private GameObject Manager;
     private PlayingManager pm;
     private bool IsPlayingDelayed;
+    public float mass;
     public Vector3 vel;
     public Vector3 rot;
     public Vector3 acc;//Not used yet
@@ -22,8 +23,9 @@ public class RigidBodyManager : MonoBehaviour
     {
         if (pm.IsPlaying && !(GetComponent<Rigidbody>().constraints == RigidbodyConstraints.FreezeAll))
         {
-            vel = GetComponent<Rigidbody>().velocity;
-            rot = GetComponent<Rigidbody>().angularVelocity;
+            vel = GetComponent<Rigidbody>().velocity*100;
+            rot = GetComponent<Rigidbody>().angularVelocity*100;
+            mass = GetComponent<Rigidbody>().mass;
         }
         
         if (!isStatic)
@@ -60,8 +62,9 @@ public class RigidBodyManager : MonoBehaviour
         {
             if (pause == true)
             {
-                vel = r.velocity;
-                rot = r.angularVelocity;
+                vel = r.velocity*100;
+                rot = r.angularVelocity*100;
+                mass = r.mass;
                 r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
                 RigidbodyConstraints.FreezePositionZ;
@@ -71,8 +74,9 @@ public class RigidBodyManager : MonoBehaviour
                 r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
                 RigidbodyConstraints.FreezePositionZ);
-                r.velocity = vel;
-                r.angularVelocity = rot;
+                r.velocity = vel/100;
+                r.angularVelocity = rot/100 ;
+                r.mass = mass;
 
             }
         }
