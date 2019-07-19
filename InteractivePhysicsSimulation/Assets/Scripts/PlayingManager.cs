@@ -7,6 +7,7 @@ public class PlayingManager : MonoBehaviour {
     public GameObject Selected;
     public GameObject PropertiesPanel;
     public SelectedObjectControllerAndSelecter socas;
+    public GravityManager gravm;
     private void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -20,7 +21,11 @@ public class PlayingManager : MonoBehaviour {
         {
             TogglePlayPause();
         }
-        if(Selected == null)
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            MyBossIsGonnaFlipWhenHeSeesThis();
+        }
+        if (Selected == null)
         {
             PropertiesPanel.SetActive(false);
         }
@@ -40,5 +45,10 @@ public class PlayingManager : MonoBehaviour {
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         socas.KidsReactToPropertyDamage();
+    }
+    public void MyBossIsGonnaFlipWhenHeSeesThis()
+    {
+        gravm = GetComponent<GravityManager>();
+        gravm.invertGravity('a');
     }
 }

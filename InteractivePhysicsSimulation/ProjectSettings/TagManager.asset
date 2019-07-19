@@ -8,6 +8,7 @@ TagManager:
   - Object
   - CustomColor
   - PlayButton
+  - GlobOptionPanel
   layers:
   - Default
   - TransparentFX
