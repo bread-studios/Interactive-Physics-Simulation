@@ -24,6 +24,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private GameObject velX;
     private GameObject velY;
     private GameObject velZ;
+    private GameObject angularVelX;
+    private GameObject angularVelY;
+    private GameObject angularVelZ;
     //UI values
     private float speed;
 
@@ -51,6 +54,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         velX = GameObject.Find("VelocityX");
         velY = GameObject.Find("VelocityY");
         velZ = GameObject.Find("VelocityZ");
+
+        angularVelX = GameObject.Find("AngularVelocityX");
+        angularVelY = GameObject.Find("AngularVelocityY");
+        angularVelZ = GameObject.Find("AngularVelocityZ");
     }
     private void Update()
     {
@@ -89,7 +96,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
             rbm.vel.y = float.Parse(velY.GetComponent<InputField>().text);
             rbm.vel.z = float.Parse(velZ.GetComponent<InputField>().text);
         }
-    }
+    }   
 
     public void Compile()//compiles properties together
     {
@@ -106,6 +113,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         floatProperties.Add(rbm.vel.x);
         floatProperties.Add(rbm.vel.y);
         floatProperties.Add(rbm.vel.z);
+        floatProperties.Add(rbm.rot.x);
+        floatProperties.Add(rbm.rot.y);
+        floatProperties.Add(rbm.rot.z);
 
         if (pm.Selected == gameObject)
         {
@@ -128,6 +138,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         velX.GetComponent<InputField>().text = rbm.vel.x.ToString();
         velY.GetComponent<InputField>().text = rbm.vel.y.ToString();
         velZ.GetComponent<InputField>().text = rbm.vel.z.ToString();
+        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString();
+        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString();
+        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString();
     }
 
     IEnumerator Waiter()
