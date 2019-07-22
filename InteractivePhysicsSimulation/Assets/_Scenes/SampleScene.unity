@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 328269710}
   m_Layer: 5
   m_Name: SettingsButton
-  m_TagString: PlayButton
+  m_TagString: SettingsButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
