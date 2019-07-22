@@ -12,6 +12,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private Renderer rd;
     private RigidBodyManager rbm;
     private bool isSelected;
+    private bool gswOpen;
     private HighlightDetectionUI hdui;
     //UI gameobjects
     private GameObject playButton;
@@ -27,6 +28,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private GameObject angularVelX;
     private GameObject angularVelY;
     private GameObject angularVelZ;
+    private GameObject gravX;
+    private GameObject gravY; //peter is a fuzzy peach
+    private GameObject gravZ;
     private GameObject mass;
     //UI values
     private float speed;
@@ -36,6 +40,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     {
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
+        gm = Manager.GetComponent<GravityManager>();
         rd = GetComponent<Renderer>();
         SelectedMat = Resources.Load("Materials/Selected", typeof(Material)) as Material;
         DefaultMat = Resources.Load("Materials/Default", typeof(Material)) as Material;
@@ -59,6 +64,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         angularVelX = GameObject.Find("AngularVelocityX");
         angularVelY = GameObject.Find("AngularVelocityY");
         angularVelZ = GameObject.Find("AngularVelocityZ");
+
+        gravX = GameObject.Find("GravityX");
+        gravY = GameObject.Find("GravityY");
+        gravZ = GameObject.Find("GravityZ");
 
         mass = GameObject.Find("MassInput");
     }
@@ -97,6 +106,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
             transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
             rbm.vel = new Vector3(float.Parse(velX.GetComponent<InputField>().text), float.Parse(velY.GetComponent<InputField>().text), float.Parse(velZ.GetComponent<InputField>().text));
             rbm.rot = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            gm.direction = new Vector3(float.Parse(gravX.GetComponent<InputField>().text), float.Parse(gravY.GetComponent<InputField>().text), float.Parse(gravZ.GetComponent<InputField>().text));
             rbm.mass = float.Parse(mass.GetComponent<InputField>().text);
         }
     }   
@@ -120,6 +130,14 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString();
         mass.GetComponent<InputField>().text = rbm.mass.ToString("n10");
     }
+
+    public void GSCompile() //Compiler for global settings because they need compiling at different times than everything else
+    {
+        gravX.GetComponent<InputField>().text = gm.direction.x.ToString();
+        gravY.GetComponent<InputField>().text = gm.direction.x.ToString();
+        gravZ.GetComponent<InputField>().text = gm.direction.x.ToString();
+    }
+
     IEnumerator Waiter()
     {
         if (pm.Selected == gameObject)
