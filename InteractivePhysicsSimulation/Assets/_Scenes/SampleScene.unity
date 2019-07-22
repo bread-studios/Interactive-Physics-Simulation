@@ -208,15 +208,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalRotation.w
@@ -564,9 +564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e43a75b1156fef4c8bf2881ab74999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityVertical: 2
-  mouseSensitivityHorizontal: 2
-  cameraSpeed: 7
+  mouseSensitivityVertical: 1
+  mouseSensitivityHorizontal: 1
+  cameraStartSpeed: 1
+  cameraAccel: 0.1
+  cameraSpeed: 0
+  maxCameraSpeed: 5
 --- !u!114 &138619150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +783,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 188784504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -789,7 +792,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 28b52a4e3cdabcb4ba6eab0afd65454f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
