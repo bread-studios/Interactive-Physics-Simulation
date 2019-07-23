@@ -7,6 +7,7 @@ TagManager:
   - Manager
   - Object
   - PlayButton
+  - GridMaker
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Grid
   - 
   - 
   - 
