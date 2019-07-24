@@ -1340,7 +1340,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1515896814}
-        m_MethodName: TogglePlayPause
+        m_MethodName: ToggleGlobalSettingsWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5237,8 +5237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Selected: {fileID: 0}
   PropertiesPanel: {fileID: 1973959449}
+  GlobOptionPanel: {fileID: 1462968085}
   socas: {fileID: 0}
   IsPlaying: 0
+  GSPIsEnabled: 0
 --- !u!4 &1515896815
 Transform:
   m_ObjectHideFlags: 0
@@ -5264,6 +5266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
+  gravX: {fileID: 314577689}
+  gravY: {fileID: 1151838395}
+  gravZ: {fileID: 1923983825}
 --- !u!1 &1532715743
 GameObject:
   m_ObjectHideFlags: 0
