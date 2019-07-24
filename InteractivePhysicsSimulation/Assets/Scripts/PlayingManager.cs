@@ -19,14 +19,17 @@ public class PlayingManager : MonoBehaviour {
 
     private void Update()
     {
+        //Toggle playing or paused
         if (Input.GetKeyUp("p"))
         {
             TogglePlayPause();
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        //Toggle the appearance of the global settings panel
+        if (Input.GetKeyUp(KeyCode.Q)) 
         {
             ToggleGlobalSettingsWindow();
         }
+        //If nothing selected, don't show the properties panel
         if(Selected == null)
         {
             PropertiesPanel.SetActive(false);
@@ -52,9 +55,5 @@ public class PlayingManager : MonoBehaviour {
     {
         GSPIsEnabled = !GSPIsEnabled;
         GlobOptionPanel.SetActive(GSPIsEnabled);
-    }
-    public void TogglePlayButtonIcon()
-    {
-        //change icon
     }
 }
