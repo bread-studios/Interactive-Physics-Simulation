@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Input.GetMouseButton(1))
         {
 
@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
                 pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
                 roll = 0;
             }
-            transform.eulerAngles = new Vector3(pitch+initRot.eulerAngles.x, yaw+initRot.eulerAngles.y, roll+initRot.eulerAngles.z);
+            transform.eulerAngles = new Vector3(pitch + initRot.eulerAngles.x, yaw + initRot.eulerAngles.y, roll + initRot.eulerAngles.z);
         }
         else
         {
@@ -85,7 +85,7 @@ public class CameraController : MonoBehaviour
             //moves up
             if (Input.GetKey("space"))
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed*Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + cameraSpeed * Time.deltaTime, transform.position.z);
 
             }
             //moves down

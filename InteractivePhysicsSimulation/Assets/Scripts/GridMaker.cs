@@ -5,17 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshFilter))]
 
-public class GridMaker : MonoBehaviour {
+public class GridMaker : MonoBehaviour
+{
 
     public int GridSize;
     private GameObject mc;
+    private float ambInt;
     void Awake()
     {
 
         MeshRenderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
-        transform.position = new Vector3(-GridSize/2,0,-GridSize/2);
+        transform.position = new Vector3(-GridSize / 2, 0, -GridSize / 2);
         MeshFilter filter = gameObject.GetComponent<MeshFilter>();
-        Mesh mesh  = new Mesh();
+        Mesh mesh = new Mesh();
         meshRenderer.enabled = true;
         List<Vector3> verticies = new List<Vector3>();
 
@@ -49,6 +51,6 @@ public class GridMaker : MonoBehaviour {
 
     private void Update()
     {
-        transform.position = new Vector3(-GridSize/2 + Mathf.Round(mc.transform.position.x),0,-GridSize / 2 + Mathf.Round(mc.transform.position.z));
+        transform.position = new Vector3(-GridSize / 2 + Mathf.Round(mc.transform.position.x), 0, -GridSize / 2 + Mathf.Round(mc.transform.position.z));
     }
 }

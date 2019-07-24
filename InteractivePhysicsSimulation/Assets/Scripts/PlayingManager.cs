@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayingManager : MonoBehaviour {
+public class PlayingManager : MonoBehaviour
+{
 
     public GameObject Selected;
     public GameObject PropertiesPanel;
     public SelectedObjectControllerAndSelecter socas;
+    public RigidBodyManager rbm;
+    public bool isSliderChanged;
     private void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -20,7 +23,7 @@ public class PlayingManager : MonoBehaviour {
         {
             TogglePlayPause();
         }
-        if(Selected == null)
+        if (Selected == null)
         {
             PropertiesPanel.SetActive(false);
         }
@@ -34,11 +37,29 @@ public class PlayingManager : MonoBehaviour {
     public void TogglePlayPause()
     {
         Debug.Log("toggled play/pause");
-        IsPlaying = !IsPlaying; 
+        IsPlaying = !IsPlaying;
     }
     public void ReactToPropertyChange()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         socas.KidsReactToPropertyDamage();
+    }
+
+    public void ToggleStatic()
+    {
+        Debug.Log("ToggleStatic");
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
+        rbm.isStatic = !rbm.isStatic;
+    }
+
+    public void SliderChanged()
+    {
+        isSliderChanged = true;
+    }
+
+    public void NotSliderChanged()
+    {
+        isSliderChanged = false;
     }
 }

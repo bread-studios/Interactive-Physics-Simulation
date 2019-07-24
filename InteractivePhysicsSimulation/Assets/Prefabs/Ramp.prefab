@@ -24,9 +24,11 @@ GameObject:
   - component: {fileID: 54353645116619088}
   - component: {fileID: 64957464181738568}
   - component: {fileID: 114985840228144152}
+  - component: {fileID: 114849702606646126}
+  - component: {fileID: 114403311075600430}
   m_Layer: 0
-  m_Name: RigidRamp
-  m_TagString: Untagged
+  m_Name: Ramp
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,9 +39,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745974022064428}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1, z: 2}
-  m_LocalScale: {x: 100, y: 200, z: 100}
+  m_LocalScale: {x: 200, y: 200.00012, z: 100.00006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +61,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2f43bcce3176dec439a88065d9751fd7, type: 2}
+  - {fileID: 2100000, guid: 28b52a4e3cdabcb4ba6eab0afd65454f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +117,34 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 60f472375971b8d4ebdf41b76fcbf885, type: 3}
+--- !u!114 &114403311075600430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745974022064428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d1c28d20d7e6f44b5c82a65342313a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staticToggle: {fileID: 0}
+--- !u!114 &114849702606646126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745974022064428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e30e9adf08422b49931de7b18b0b148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 0
+  vel: {x: 0, y: 0, z: 0}
+  rot: {x: 0, y: 0, z: 0}
+  acc: {x: 0, y: 0, z: 0}
+  isStatic: 1
 --- !u!114 &114985840228144152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,4 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd38d25e9eded6e4db918f86f291f822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 45
+  angle: 30

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectedObjectControllerAndSelecter : MonoBehaviour {
+public class SelectedObjectControllerAndSelecter : MonoBehaviour
+{
 
     private GameObject Manager;
     private PlayingManager pm;
@@ -13,6 +14,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private RigidBodyManager rbm;
     private bool isSelected;
     private HighlightDetectionUI hdui;
+    private Collider butter;
     //UI gameobjects
     private GameObject playButton;
     private GameObject posX;
@@ -28,6 +30,11 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
     private GameObject angularVelY;
     private GameObject angularVelZ;
     private GameObject mass;
+    private GameObject dynamicFriction;
+    private GameObject staticFriction;
+    private GameObject elasticitySlider;
+    private GameObject elasticityInput;
+    public GameObject staticToggle;
     //UI values
     private float speed;
 
@@ -43,6 +50,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         playButton = GameObject.FindWithTag("PlayButton");
         rbm = GetComponent<RigidBodyManager>();
         hdui = playButton.GetComponent<HighlightDetectionUI>();
+        butter = GetComponent<Collider>();
 
         posX = GameObject.Find("PositionX");
         posY = GameObject.Find("PositionY");
@@ -61,7 +69,16 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         angularVelZ = GameObject.Find("AngularVelocityZ");
 
         mass = GameObject.Find("MassInput");
+
+        dynamicFriction = GameObject.Find("DynamicFrictionInput");
+        staticFriction = GameObject.Find("StaticFrictionInput");
+
+        elasticityInput = GameObject.Find("ElasticityInput");
+        elasticitySlider = GameObject.Find("ElasticitySlider");
+
+        staticToggle = GameObject.Find("Static");
     }
+
     private void Update()
     {
         if (pm.Selected == gameObject && pm.IsPlaying == true)
@@ -69,6 +86,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
             Compile();
         }
     }
+
     private void OnMouseDown()
     {
         if (!hdui.isPlayButtonHighlighted)
@@ -82,44 +100,61 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
                 pm.Selected = gameObject;
                 rd.material = SelectedMat;
                 StartCoroutine("Waiter");
-                Debug.Log(gameObject.name);
                 Compile();
             }
         }
     }
-
-
-    public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
-    {
-        if(pm.Selected == gameObject)
-        {
-            transform.position = new Vector3(float.Parse(posX.GetComponent<InputField>().text), float.Parse(posY.GetComponent<InputField>().text), float.Parse(posZ.GetComponent<InputField>().text));
-            transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
-            rbm.vel = new Vector3(float.Parse(velX.GetComponent<InputField>().text), float.Parse(velY.GetComponent<InputField>().text), float.Parse(velZ.GetComponent<InputField>().text));
-            rbm.rot = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
-            rbm.mass = float.Parse(mass.GetComponent<InputField>().text);
-        }
-    }   
 
     public void Compile()//compiles properties together
     {
         //Properties: rbm.vel for velocity, transform.[position, rotation, or maybe scale].[x, y, or z] for transform properties
         /*list order: transform properties(position xyz, and rotation xyz), velocity magnitude, angular velocity magnitude, */
         //any edits made here should have a counterpart in "kidsreacttopropertydamage"
-        posX.GetComponent<InputField>().text = transform.position.x.ToString();
-        posY.GetComponent<InputField>().text = transform.position.y.ToString();
-        posZ.GetComponent<InputField>().text = transform.position.z.ToString();
-        rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString();
-        rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString();
-        rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString();
-        velX.GetComponent<InputField>().text = rbm.vel.x.ToString();
-        velY.GetComponent<InputField>().text = rbm.vel.y.ToString();
-        velZ.GetComponent<InputField>().text = rbm.vel.z.ToString();
-        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString();
-        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString();
-        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString();
+        posX.GetComponent<InputField>().text = transform.position.x.ToString("n10");
+        posY.GetComponent<InputField>().text = transform.position.y.ToString("n10");
+        posZ.GetComponent<InputField>().text = transform.position.z.ToString("n10");
+        rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString("n10");
+        rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString("n10");
+        rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString("n10");
+        velX.GetComponent<InputField>().text = rbm.vel.x.ToString("n10");
+        velY.GetComponent<InputField>().text = rbm.vel.y.ToString("n10");
+        velZ.GetComponent<InputField>().text = rbm.vel.z.ToString("n10");
+        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString("n10");
+        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString("n10");
+        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString("n10");
         mass.GetComponent<InputField>().text = rbm.mass.ToString("n10");
+        dynamicFriction.GetComponent<InputField>().text = butter.material.dynamicFriction.ToString("n10");
+        staticFriction.GetComponent<InputField>().text = butter.material.staticFriction.ToString("n10");
+        elasticityInput.GetComponent<InputField>().text = butter.material.bounciness.ToString("n10");
+        elasticitySlider.GetComponent<Slider>().value = float.Parse(elasticityInput.GetComponent<InputField>().text);
+        staticToggle.GetComponent<Toggle>().isOn = rbm.isStatic;
     }
+
+    public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
+    {
+        if (pm.Selected == gameObject)
+        {
+            transform.position = new Vector3(float.Parse(posX.GetComponent<InputField>().text), float.Parse(posY.GetComponent<InputField>().text), float.Parse(posZ.GetComponent<InputField>().text));
+            transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            rbm.vel = new Vector3(float.Parse(velX.GetComponent<InputField>().text), float.Parse(velY.GetComponent<InputField>().text), float.Parse(velZ.GetComponent<InputField>().text));
+            rbm.rot = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            rbm.mass = float.Parse(mass.GetComponent<InputField>().text);
+            butter.material.dynamicFriction = float.Parse(dynamicFriction.GetComponent<InputField>().text);
+            butter.material.staticFriction = float.Parse(staticFriction.GetComponent<InputField>().text);
+            if (pm.isSliderChanged)
+            {
+                Debug.Log("isSliderChanged");
+                butter.material.bounciness = elasticitySlider.GetComponent<Slider>().value;
+                elasticityInput.GetComponent<InputField>().text = butter.material.bounciness.ToString("n10");
+            }
+            if (!pm.isSliderChanged)
+            {
+                butter.material.bounciness = float.Parse(elasticityInput.GetComponent<InputField>().text);
+                elasticitySlider.GetComponent<Slider>().value = butter.material.bounciness;
+            }
+        }
+    }
+
     IEnumerator Waiter()
     {
         if (pm.Selected == gameObject)
@@ -128,12 +163,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour {
         }
         else
         {
-            isSelected = false  ;
+            isSelected = false;
         }
         yield return new WaitUntil(() => pm.Selected);
         yield return new WaitUntil(() => !pm.Selected);
         rd.material = DefaultMat;
     }
-
-
 }
