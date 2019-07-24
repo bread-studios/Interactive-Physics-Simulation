@@ -44,6 +44,7 @@ public class GridMaker : MonoBehaviour
 
         meshRenderer.material = Resources.Load("Materials/Grid") as Material;
     }
+
     private void Start()
     {
         mc = GameObject.FindWithTag("MainCamera");
