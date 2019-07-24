@@ -9,7 +9,6 @@ public class GridMaker : MonoBehaviour {
 
     public int GridSize;
     private GameObject mc;
-    private float ambInt;
     void Awake()
     {
 
