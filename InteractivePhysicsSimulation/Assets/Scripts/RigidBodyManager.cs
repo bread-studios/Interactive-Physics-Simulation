@@ -7,6 +7,7 @@ public class RigidBodyManager : MonoBehaviour
     private GameObject Manager;
     private PlayingManager pm;
     private bool IsPlayingDelayed;
+    private SelectedObjectControllerAndSelecter socas;
     public float mass;
     public Vector3 vel;
     public Vector3 rot;
@@ -75,9 +76,8 @@ public class RigidBodyManager : MonoBehaviour
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
                 RigidbodyConstraints.FreezePositionZ);
                 r.velocity = vel/100;
-                r.angularVelocity = rot/100 ;
+                r.angularVelocity = rot/100;
                 r.mass = mass;
-
             }
         }
         else
