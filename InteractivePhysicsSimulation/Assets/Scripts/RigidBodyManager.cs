@@ -15,6 +15,9 @@ public class RigidBodyManager : MonoBehaviour
     public bool isStatic;
     void Start()
     {
+        GetComponent<Rigidbody>().drag = 0;
+        GetComponent<Rigidbody>().angularDrag = 0;
+        GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         freezeComponent(GetComponent<Rigidbody>(), true);
@@ -31,6 +34,7 @@ public class RigidBodyManager : MonoBehaviour
 
         if (!isStatic)
         {
+            GetComponent<Rigidbody>().isKinematic = false;
             if (pm.IsPlaying != IsPlayingDelayed)
             {
                 if (pm.IsPlaying == true)
@@ -46,9 +50,10 @@ public class RigidBodyManager : MonoBehaviour
         }
         else
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+            GetComponent<Rigidbody>().isKinematic = true;
+            /*GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
-                RigidbodyConstraints.FreezePositionZ;
+                RigidbodyConstraints.FreezePositionZ;*/
         }
 
     }

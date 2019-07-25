@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4288845470634288}
   - component: {fileID: 33267726742051428}
   - component: {fileID: 23723298897657296}
-  - component: {fileID: 54260102071479766}
   - component: {fileID: 65631365517489572}
   - component: {fileID: 114336119546575328}
   - component: {fileID: 114155645803899322}
+  - component: {fileID: 54917007199249544}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Object
@@ -87,7 +87,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1875592711511954}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54260102071479766
+--- !u!54 &54917007199249544
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -112,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &114155645803899322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,4 +141,4 @@ MonoBehaviour:
   vel: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
   acc: {x: 0, y: 0, z: 0}
-  isStatic: 1
+  isStatic: 0

@@ -15,6 +15,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private bool isSelected;
     private HighlightDetectionUI hdui;
     private Collider butter;
+    private float trueBounce;
+    private float bounceFactor = 0.98823535f;
+
     //UI gameobjects
     private GameObject playButton;
     private GameObject posX;
@@ -23,6 +26,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject rotX;
     private GameObject rotY;
     private GameObject rotZ;
+    private GameObject sclX;
+    private GameObject sclY;
+    private GameObject sclZ;
     private GameObject velX;
     private GameObject velY;
     private GameObject velZ;
@@ -51,6 +57,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         rbm = GetComponent<RigidBodyManager>();
         hdui = playButton.GetComponent<HighlightDetectionUI>();
         butter = GetComponent<Collider>();
+        butter.material.bounceCombine = PhysicMaterialCombine.Average;
+        butter.material.frictionCombine = PhysicMaterialCombine.Average;
+        trueBounce = butter.material.bounciness / bounceFactor;
+        butter.material.bounciness = trueBounce * bounceFactor;
 
         posX = GameObject.Find("PositionX");
         posY = GameObject.Find("PositionY");
@@ -59,6 +69,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         rotX = GameObject.Find("RotationX");
         rotY = GameObject.Find("RotationY");
         rotZ = GameObject.Find("RotationZ");
+
+        sclX = GameObject.Find("ScaleX");
+        sclY = GameObject.Find("ScaleY");
+        sclZ = GameObject.Find("ScaleZ");
 
         velX = GameObject.Find("VelocityX");
         velY = GameObject.Find("VelocityY");
@@ -81,6 +95,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     private void Update()
     {
+        trueBounce = butter.material.bounciness / bounceFactor;
+        butter.material.bounciness = trueBounce * bounceFactor;
+        butter.material.bounceCombine = PhysicMaterialCombine.Average   ;
+        butter.material.frictionCombine = PhysicMaterialCombine.Average;
         if (pm.Selected == gameObject && pm.IsPlaying == true)
         {
             Compile();
@@ -116,6 +134,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString("n10");
         rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString("n10");
         rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString("n10");
+        sclX.GetComponent<InputField>().text = transform.localScale.x.ToString("n10");
+        sclY.GetComponent<InputField>().text = transform.localScale.y.ToString("n10");
+        sclZ.GetComponent<InputField>().text = transform.localScale.z.ToString("n10");
         velX.GetComponent<InputField>().text = rbm.vel.x.ToString("n10");
         velY.GetComponent<InputField>().text = rbm.vel.y.ToString("n10");
         velZ.GetComponent<InputField>().text = rbm.vel.z.ToString("n10");
@@ -125,8 +146,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         mass.GetComponent<InputField>().text = rbm.mass.ToString("n10");
         dynamicFriction.GetComponent<InputField>().text = butter.material.dynamicFriction.ToString("n10");
         staticFriction.GetComponent<InputField>().text = butter.material.staticFriction.ToString("n10");
-        elasticityInput.GetComponent<InputField>().text = butter.material.bounciness.ToString("n10");
+        trueBounce = butter.material.bounciness / bounceFactor;
+        elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n10");
         elasticitySlider.GetComponent<Slider>().value = float.Parse(elasticityInput.GetComponent<InputField>().text);
+        butter.material.bounciness = trueBounce * bounceFactor;
         staticToggle.GetComponent<Toggle>().isOn = rbm.isStatic;
     }
 
@@ -136,22 +159,24 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         {
             transform.position = new Vector3(float.Parse(posX.GetComponent<InputField>().text), float.Parse(posY.GetComponent<InputField>().text), float.Parse(posZ.GetComponent<InputField>().text));
             transform.eulerAngles = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
+            transform.localScale = new Vector3(float.Parse(sclX.GetComponent<InputField>().text), float.Parse(sclY.GetComponent<InputField>().text), float.Parse(sclZ.GetComponent<InputField>().text));
             rbm.vel = new Vector3(float.Parse(velX.GetComponent<InputField>().text), float.Parse(velY.GetComponent<InputField>().text), float.Parse(velZ.GetComponent<InputField>().text));
             rbm.rot = new Vector3(float.Parse(rotX.GetComponent<InputField>().text), float.Parse(rotY.GetComponent<InputField>().text), float.Parse(rotZ.GetComponent<InputField>().text));
             rbm.mass = float.Parse(mass.GetComponent<InputField>().text);
             butter.material.dynamicFriction = float.Parse(dynamicFriction.GetComponent<InputField>().text);
             butter.material.staticFriction = float.Parse(staticFriction.GetComponent<InputField>().text);
+            trueBounce = butter.material.bounciness / bounceFactor;
             if (pm.isSliderChanged)
             {
-                Debug.Log("isSliderChanged");
-                butter.material.bounciness = elasticitySlider.GetComponent<Slider>().value;
-                elasticityInput.GetComponent<InputField>().text = butter.material.bounciness.ToString("n10");
+                trueBounce = elasticitySlider.GetComponent<Slider>().value;
+                elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n10");
             }
             if (!pm.isSliderChanged)
             {
-                butter.material.bounciness = float.Parse(elasticityInput.GetComponent<InputField>().text);
-                elasticitySlider.GetComponent<Slider>().value = butter.material.bounciness;
+                trueBounce = float.Parse(elasticityInput.GetComponent<InputField>().text);
+                elasticitySlider.GetComponent<Slider>().value = trueBounce;
             }
+            butter.material.bounciness = trueBounce * bounceFactor;
         }
     }
 
