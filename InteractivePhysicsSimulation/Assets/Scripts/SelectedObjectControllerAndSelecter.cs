@@ -115,7 +115,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!hdui.isPlayButtonHighlighted)
+        if (!hdui.isGUIHighlighted)
         {
             if (pm.Selected != null)
             {

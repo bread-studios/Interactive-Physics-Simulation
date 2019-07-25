@@ -36,7 +36,6 @@ public class PlayingManager : MonoBehaviour
 
     public void TogglePlayPause()
     {
-        Debug.Log("toggled play/pause");
         IsPlaying = !IsPlaying;
     }
     public void ReactToPropertyChange()
@@ -47,7 +46,6 @@ public class PlayingManager : MonoBehaviour
 
     public void ToggleStatic()
     {
-        Debug.Log("ToggleStatic");
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         rbm = Selected.GetComponent<RigidBodyManager>();
         rbm.isStatic = !rbm.isStatic;
