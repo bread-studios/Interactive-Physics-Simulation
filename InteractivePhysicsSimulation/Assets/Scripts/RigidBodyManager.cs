@@ -15,6 +15,9 @@ public class RigidBodyManager : MonoBehaviour
     public bool isStatic;
     void Start()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionZ;
         GetComponent<Rigidbody>().drag = 0;
         GetComponent<Rigidbody>().angularDrag = 0;
         GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;

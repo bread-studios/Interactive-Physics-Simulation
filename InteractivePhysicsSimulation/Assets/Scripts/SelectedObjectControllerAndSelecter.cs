@@ -17,7 +17,12 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private Collider butter;
     private float trueBounce;
     private float bounceFactor = 0.98823535f;
-
+    //the reset button will bring the objects to these values:
+    private Vector3 rsPos;
+    private Vector3 rsRot;
+    private Vector3 rsScl;
+    private Vector3 rsVel;
+    private Vector3 rsAngVel;
     //UI gameobjects
     private GameObject playButton;
     private GameObject posX;
@@ -61,6 +66,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         trueBounce = butter.material.bounciness / bounceFactor;
         butter.material.bounciness = trueBounce * bounceFactor;
+        trueBounce = 0.5f;
+        butter.material.bounciness = trueBounce * bounceFactor;
+        trueBounce = butter.material.bounciness / bounceFactor;
 
         posX = GameObject.Find("PositionX");
         posY = GameObject.Find("PositionY");
@@ -178,6 +186,11 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
             }
             butter.material.bounciness = trueBounce * bounceFactor;
         }
+    }
+
+    public void reset()
+    {
+        transform.position = 
     }
 
     IEnumerator Waiter()
