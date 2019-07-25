@@ -15,7 +15,7 @@ public class GravityManager : MonoBehaviour {
 	//Set gravity to be regular earth gravity
 	void Start () {
         Physics.gravity = new Vector3(0, -9.81f, 0);
-        direction = Physics.gravity;
+        direction = enforceUpperLimit(10000, Physics.gravity);
         AntiGravityKidsReactToPropertyDamage();
     }
 	
@@ -28,16 +28,16 @@ public class GravityManager : MonoBehaviour {
         currentDirection = Physics.gravity;
         direction = Physics.gravity;
         AntiGravityParentsReactToKidDamage();
+        AntiGravityKidsReactToPropertyDamage();
         if (Input.GetKeyUp(KeyCode.G))
         {
             invertGravity('a');
         }
     }
 
-    //Update the text fields to show the currect gravity vector
+    //Update the text fields to show the current gravity vector
     void AntiGravityKidsReactToPropertyDamage()
     {
-        direction = enforceUpperLimit(10000, direction);
         gravX.GetComponent<InputField>().text = direction.x.ToString();
         gravY.GetComponent<InputField>().text = direction.y.ToString();
         gravZ.GetComponent<InputField>().text = direction.z.ToString();
