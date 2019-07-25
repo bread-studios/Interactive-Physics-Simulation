@@ -226,6 +226,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
+        type: 2}
+      propertyPath: bounceFactor
+      value: 0.99
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
   m_IsPrefabParent: 0
@@ -3408,7 +3413,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3436,6 +3441,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114403311075600430, guid: e06be632ea950354ebf701b605a91291,
+        type: 2}
+      propertyPath: bounceFactor
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
