@@ -190,7 +190,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     public void reset()
     {
-        transform.position = 
+        //transform.position = 
     }
 
     IEnumerator Waiter()
