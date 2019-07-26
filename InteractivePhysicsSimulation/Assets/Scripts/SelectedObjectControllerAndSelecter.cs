@@ -24,6 +24,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private Vector3 rsVel;
     private Vector3 rsAngVel;
     //UI gameobjects
+    private GameObject cvs; //canvas
     private GameObject playButton;
     private GameObject posX;
     private GameObject posY;
@@ -60,7 +61,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         rd.material = DefaultMat;
         playButton = GameObject.FindWithTag("PlayButton");
         rbm = GetComponent<RigidBodyManager>();
-        hdui = playButton.GetComponent<HighlightDetectionUI>();
+        cvs = GameObject.FindWithTag("Canvas");
+        hdui = cvs.GetComponent<HighlightDetectionUI>();
         butter = GetComponent<Collider>();
         butter.material.bounceCombine = PhysicMaterialCombine.Average;
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
@@ -119,10 +121,12 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         {
             if (pm.Selected != null)
             {
+                Debug.Log("deselect");
                 pm.Selected = null;
             }
             else
             {
+                Debug.Log("select");
                 pm.Selected = gameObject;
                 rd.material = SelectedMat;
                 StartCoroutine("Waiter");
