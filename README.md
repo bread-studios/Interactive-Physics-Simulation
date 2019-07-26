@@ -25,7 +25,7 @@ Our program uses simple, easy to remember controls. This section will explain wh
 
 - RIGHT MOUSE BUTTON - Hold and move the mouse to look around
 
-- LEFT ALT - Hold and move the mouse to tilt the camera
+- LEFT ALT + RIGHT MOUSE BUTTON - Hold and move the mouse to tilt the camera
 
 -----------------------
 
