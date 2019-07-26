@@ -32,11 +32,27 @@ Our program uses simple, easy to remember controls. This section will explain wh
 # Mechanics and UI
 There are several different mechanics in our program for you, the user, to utilize. This section explains how to utilize them, and how they work.
 
-- Highlighter (Hotkey: LEFT MOUSE BUTTON) - By clicking on an object in the environment with your mouse, you can select it and change some various properties native to that object. (see Properties Panel).
+- Highlighter (Hotkey: LEFT MOUSE BUTTON) - By clicking on an object in the environment with your mouse, you can select it and change some various properties native to that object (see Properties Panel).
 
-- Properties Panel - The properties panel can be found on the left side of the window in a large, dark box when an object is highlighted. Inside, there are many different properties that you can edit. It will disappear when the object is unhighlighted.
+- Properties Panel - The properties panel can be found on the left side of the window in a large, dark box when an object is highlighted. Inside, there are many different properties that you can edit. It will disappear when the object is unhighlighted. More information on this panel and it's properties will be touched on in the "Properties" section.
 
-- Global Options Panel and Button (Hotkey: Q) - In the top right corner of your screen, there is a gear icon that when clicked, will enable or disable the global options panel, which appears in the middle of the window. The global options panel allows you to change certain global properties that affect the environment as a whole, not necesarily any individual item.
+- Global Settings Panel and Button (Hotkey: Q) - In the top right corner of your screen, there is a gear icon that when clicked, will open the global settings panel, which appears in the middle of the window. The global options panel allows you to change certain global properties that affect the environment as a whole, not necesarily any individual item. The panel can be closed again by clicking the gear again, or pressing the hotkey.
 
 - Play/Pause Button (Hotkey: P) - In the bottom right corner of your screen, there is a play button that when clicked, will play or pause the environment until the button is clicked again.
 
+-----------------------
+
+# Properties
+In our program, there are two types of properties: local, and global. Local properties only affect one item or a group of items, while global properties affect the entire environment. This section will explain what each individual property does and how to edit it.
+
+**Local**
+Local properties can be viewed on the Properties Panel.
+
+- 
+
+**Global**
+The following can be viewed on the Global Settings Panel.
+
+- Gravity Vector (Hotkey: G) - Found in the global options panel, the gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before.
+
+-----------------------
