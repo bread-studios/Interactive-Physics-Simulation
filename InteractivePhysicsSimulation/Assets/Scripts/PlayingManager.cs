@@ -8,6 +8,9 @@ public class PlayingManager : MonoBehaviour {
     public GameObject PropertiesPanel;
     public GameObject GlobOptionPanel;
     public SelectedObjectControllerAndSelecter socas;
+    public RigidBodyManager rbm;
+    public bool isSliderChanged;
+
     private void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -55,5 +58,21 @@ public class PlayingManager : MonoBehaviour {
     {
         GSPIsEnabled = !GSPIsEnabled;
         GlobOptionPanel.SetActive(GSPIsEnabled);
+    }
+    public void ToggleStatic()
+    {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
+        rbm.isStatic = !rbm.isStatic;
+    }
+
+    public void SliderChanged()
+    {
+        isSliderChanged = true;
+    }
+
+    public void NotSliderChanged()
+    {
+        isSliderChanged = false;
     }
 }
