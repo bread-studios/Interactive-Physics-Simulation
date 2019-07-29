@@ -1,4 +1,4 @@
-# Interactive-Physics-Simulation
+# Interactive Physics Simulation
 
 Thank you for using our super cool interactive physics simulation, made and shipped to you lovingly by three greasy high-schoolers: Muyang Yan, Austyn Ngo, and Greggory Hickman.
 
@@ -8,7 +8,7 @@ In this file you will find:
 
 ----------------------
 
-# Basic movement and ultilization
+# Basic Movement and Ultilization
 Our program uses simple, easy to remember controls. This section will explain what they are, and what each input does.
 
 - W - Move in the direction you are looking
