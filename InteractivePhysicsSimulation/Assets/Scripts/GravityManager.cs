@@ -30,11 +30,15 @@ public class GravityManager : MonoBehaviour
         }
         currentDirection = Physics.gravity;
         direction = Physics.gravity;
-        AntiGravityParentsReactToKidDamage();
-        AntiGravityKidsReactToPropertyDamage();
         if (Input.GetKeyUp(KeyCode.G))
         {
+            Debug.Log("G key pressed, about to attempt to invert...");
             invertGravity('a');
+            AntiGravityKidsReactToPropertyDamage();
+        }
+        else
+        {
+            AntiGravityParentsReactToKidDamage();
         }
     }
 
@@ -44,6 +48,7 @@ public class GravityManager : MonoBehaviour
         gravX.GetComponent<InputField>().text = direction.x.ToString("g0");
         gravY.GetComponent<InputField>().text = direction.y.ToString("g0");
         gravZ.GetComponent<InputField>().text = direction.z.ToString("g0");
+
     }
 
     //Update the gravity vector to be what the text fields show
@@ -55,6 +60,7 @@ public class GravityManager : MonoBehaviour
         /*direction.x = float.Parse(gravX.GetComponent<InputField>().text);
         direction.y = float.Parse(gravY.GetComponent<InputField>().text);
         direction.z = float.Parse(gravZ.GetComponent<InputField>().text);*/
+        Debug.Log("Update gravity to be text fields");
     }
 
     //If the gravity gets too high or low herobrine will haunt your game
@@ -72,28 +78,34 @@ public class GravityManager : MonoBehaviour
             direction.z = upperLimit;
         if (direction.z < -upperLimit)
             direction.z = -upperLimit;
+        Debug.Log("enforceUpperLimit " + upperLimit + " " + direction);
         return direction;
     }
 
     //Change gravity to a custom direction
     public void changeGravity(Vector3 direction)
     {
+        this.direction = direction;
         Physics.gravity = direction;
+        Debug.Log("changeGravity");
     }
 
     //Change gravity's magnitude, but keep it in the current direction
-    public void invertGravity(char direction) //Valid args: x (x-dir), y (y-dir), z (z-dir), or a (all)
+    public void invertGravity(char cDirection) //Valid args: x (x-dir), y (y-dir), z (z-dir), or a (all)
     {
+        Debug.Log("Attempting to invert...");
         Vector3 g = Physics.gravity;
-        if (direction == 'x')
+        if (cDirection == 'x')
             g.x = -g.x;
-        if (direction == 'y')
+        if (cDirection == 'y')
             g.y = -g.y;
-        if (direction == 'z')
+        if (cDirection == 'z')
             g.z = -g.z;
-        if (direction == 'a')
+        if (cDirection == 'a')
             g = -g;
         Physics.gravity = g;
+        this.direction = g;
+        Debug.Log("invertGravity " + cDirection);
     }
 
 }
