@@ -8,12 +8,12 @@ In this file you will find:
 
 ----------------------
 
-# Basic Movement and Ultilization
+# Basic Movement and Utilization
 Our program uses simple, easy to remember controls. This section will explain what they are, and what each input does.
 
-- W - Move in the direction you are looking
+- W - Move in the direction of where you are looking
 
-- S - Move in the opposite direction that you are looking
+- S - Move in the opposite direction of where you are looking
 
 - A - Move perpendicularly to the left of where you are looking
 
@@ -25,7 +25,7 @@ Our program uses simple, easy to remember controls. This section will explain wh
 
 - RIGHT MOUSE BUTTON - Hold and move the mouse to look around
 
-- LEFT ALT + RIGHT MOUSE BUTTON - Hold and move the mouse to tilt the camera
+- LEFT ALT + RIGHT MOUSE BUTTON - Hold and move the mouse to tilt the camera (will reset itself upon movement of the camera or camera angle).
 
 -----------------------
 
