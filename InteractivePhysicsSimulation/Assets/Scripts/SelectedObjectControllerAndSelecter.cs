@@ -121,12 +121,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         {
             if (pm.Selected != null)
             {
-                Debug.Log("deselect");
                 pm.Selected = null;
             }
             else
             {
-                Debug.Log("select");
                 pm.Selected = gameObject;
                 rd.material = SelectedMat;
                 StartCoroutine("Waiter");
