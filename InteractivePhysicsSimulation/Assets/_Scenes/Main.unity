@@ -912,10 +912,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivityVertical: 5
   mouseSensitivityHorizontal: 5
-  cameraStartSpeed: 5
-  cameraAccel: 5
-  cameraSpeed: 5
-  maxCameraSpeed: 5
+  cameraStartSpeed: 1
+  cameraAccel: 0.2
+  cameraSpeed: 1
+  maxCameraSpeed: 20
 --- !u!114 &138619150
 MonoBehaviour:
   m_ObjectHideFlags: 0
