@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayingManager : MonoBehaviour {
+public class PlayingManager : MonoBehaviour
+{
 
     public GameObject Selected;
     public GameObject PropertiesPanel;
     public GameObject GlobOptionPanel;
     public SelectedObjectControllerAndSelecter socas;
+    public RigidBodyManager rbm;
+    public bool isSliderChanged;
+
     private void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -19,18 +23,15 @@ public class PlayingManager : MonoBehaviour {
 
     private void Update()
     {
-        //Toggle playing or paused
         if (Input.GetKeyUp("p"))
         {
             TogglePlayPause();
         }
-        //Toggle the appearance of the global settings panel
-        if (Input.GetKeyUp(KeyCode.Q)) 
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             ToggleGlobalSettingsWindow();
         }
-        //If nothing selected, don't show the properties panel
-        if(Selected == null)
+        if (Selected == null)
         {
             PropertiesPanel.SetActive(false);
         }
@@ -43,7 +44,6 @@ public class PlayingManager : MonoBehaviour {
 
     public void TogglePlayPause()
     {
-        Debug.Log("toggled play/pause");
         IsPlaying = !IsPlaying;
     }
     public void ReactToPropertyChange()
@@ -51,9 +51,32 @@ public class PlayingManager : MonoBehaviour {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         socas.KidsReactToPropertyDamage();
     }
-    public void ToggleGlobalSettingsWindow() //Frick you muyang i'm doing it in this class
+
+    public void ToggleGlobalSettingsWindow()
     {
         GSPIsEnabled = !GSPIsEnabled;
         GlobOptionPanel.SetActive(GSPIsEnabled);
+    }
+
+    public void ToggleStatic()
+    {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
+        rbm.isStatic = !rbm.isStatic;
+    }
+
+    public void SliderChanged()
+    {
+        isSliderChanged = true;
+    }
+
+    public void NotSliderChanged()
+    {
+        isSliderChanged = false;
+    }
+
+    public void reset() {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.reset();
     }
 }

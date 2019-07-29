@@ -7,6 +7,7 @@ public class RigidBodyManager : MonoBehaviour
     private GameObject Manager;
     private PlayingManager pm;
     private bool IsPlayingDelayed;
+    private SelectedObjectControllerAndSelecter socas;
     public float mass;
     public Vector3 vel;
     public Vector3 rot;
@@ -14,6 +15,12 @@ public class RigidBodyManager : MonoBehaviour
     public bool isStatic;
     void Start()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                RigidbodyConstraints.FreezePositionZ;
+        GetComponent<Rigidbody>().drag = 0;
+        GetComponent<Rigidbody>().angularDrag = 0;
+        GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         freezeComponent(GetComponent<Rigidbody>(), true);
@@ -23,14 +30,15 @@ public class RigidBodyManager : MonoBehaviour
     {
         if (pm.IsPlaying && !(GetComponent<Rigidbody>().constraints == RigidbodyConstraints.FreezeAll))
         {
-            vel = GetComponent<Rigidbody>().velocity*100;
-            rot = GetComponent<Rigidbody>().angularVelocity*100;
+            vel = GetComponent<Rigidbody>().velocity * 100;
+            rot = GetComponent<Rigidbody>().angularVelocity * 100;
             mass = GetComponent<Rigidbody>().mass;
         }
-        
+
         if (!isStatic)
         {
-            if (pm.IsPlaying!=IsPlayingDelayed)
+            GetComponent<Rigidbody>().isKinematic = false;
+            if (pm.IsPlaying != IsPlayingDelayed)
             {
                 if (pm.IsPlaying == true)
                 {
@@ -45,11 +53,12 @@ public class RigidBodyManager : MonoBehaviour
         }
         else
         {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+            GetComponent<Rigidbody>().isKinematic = true;
+            /*GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
-                RigidbodyConstraints.FreezePositionZ;
+                RigidbodyConstraints.FreezePositionZ;*/
         }
-        
+
     }
 
     /*Public method that freezes one specific object mid-air
@@ -62,8 +71,8 @@ public class RigidBodyManager : MonoBehaviour
         {
             if (pause == true)
             {
-                vel = r.velocity*100;
-                rot = r.angularVelocity*100;
+                vel = r.velocity * 100;
+                rot = r.angularVelocity * 100;
                 mass = r.mass;
                 r.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
@@ -74,10 +83,9 @@ public class RigidBodyManager : MonoBehaviour
                 r.constraints &= ~(RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
                 RigidbodyConstraints.FreezePositionZ);
-                r.velocity = vel/100;
-                r.angularVelocity = rot/100 ;
+                r.velocity = vel / 100;
+                r.angularVelocity = rot / 100;
                 r.mass = mass;
-
             }
         }
         else

@@ -25,7 +25,8 @@ public class EditRamp : MonoBehaviour
         trueAngle = angle * Mathf.Deg2Rad;
         yScale = transform.localScale.y;
         xScale = transform.localScale.x;
-        zScale = Mathf.Tan(trueAngle) * yScale;
+        zScale = transform.localScale.z;
+        //Mathf.Tan(trueAngle) * yScale;
         transform.localScale = new Vector3(xScale, yScale, zScale);
         transform.position = new Vector3(transform.position.x, (zScale/100) , transform.position.z);
     }
