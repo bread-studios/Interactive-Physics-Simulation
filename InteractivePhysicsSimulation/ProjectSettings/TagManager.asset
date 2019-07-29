@@ -8,6 +8,8 @@ TagManager:
   - Object
   - PlayButton
   - Canvas
+  - GlobOptionPanel
+  - GridMaker
   layers:
   - Default
   - TransparentFX
