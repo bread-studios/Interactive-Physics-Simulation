@@ -44,9 +44,9 @@ public class GravityManager : MonoBehaviour
     //Update the text fields to show the current gravity vector
     void AntiGravityKidsReactToPropertyDamage()
     {
-        gravX.GetComponent<InputField>().text = direction.x.ToString();
-        gravY.GetComponent<InputField>().text = direction.y.ToString();
-        gravZ.GetComponent<InputField>().text = direction.z.ToString();
+        gravX.GetComponent<InputField>().text = direction.x.ToString("g0");
+        gravY.GetComponent<InputField>().text = direction.y.ToString("g0");
+        gravZ.GetComponent<InputField>().text = direction.z.ToString("g0");
     }
 
     //Update the gravity vector to be what the text fields show

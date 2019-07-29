@@ -20,7 +20,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     //the reset button will bring the objects to these values:
     private Vector3 rsPos;
     private Vector3 rsRot;
-    private Vector3 rsScl;
     private Vector3 rsVel;
     private Vector3 rsAngVel;
     //UI gameobjects
@@ -47,12 +46,13 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject elasticitySlider;
     private GameObject elasticityInput;
     public GameObject staticToggle;
-    //UI values
-    private float speed;
 
 
-    private void Start()
-    {
+    private void Start() { 
+        rsPos = new Vector3(0, 1, 0);
+        rsRot = new Vector3(0, 0, 0);
+        rsVel = new Vector3(0, 0, 0);
+        rsAngVel = new Vector3(0, 0, 0);
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -138,29 +138,30 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         //Properties: rbm.vel for velocity, transform.[position, rotation, or maybe scale].[x, y, or z] for transform properties
         /*list order: transform properties(position xyz, and rotation xyz), velocity magnitude, angular velocity magnitude, */
         //any edits made here should have a counterpart in "kidsreacttopropertydamage"
-        posX.GetComponent<InputField>().text = transform.position.x.ToString("n10");
-        posY.GetComponent<InputField>().text = transform.position.y.ToString("n10");
-        posZ.GetComponent<InputField>().text = transform.position.z.ToString("n10");
-        rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString("n10");
-        rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString("n10");
-        rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString("n10");
-        sclX.GetComponent<InputField>().text = transform.localScale.x.ToString("n10");
-        sclY.GetComponent<InputField>().text = transform.localScale.y.ToString("n10");
-        sclZ.GetComponent<InputField>().text = transform.localScale.z.ToString("n10");
-        velX.GetComponent<InputField>().text = rbm.vel.x.ToString("n10");
-        velY.GetComponent<InputField>().text = rbm.vel.y.ToString("n10");
-        velZ.GetComponent<InputField>().text = rbm.vel.z.ToString("n10");
-        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString("n10");
-        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString("n10");
-        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString("n10");
-        mass.GetComponent<InputField>().text = rbm.mass.ToString("n10");
-        dynamicFriction.GetComponent<InputField>().text = butter.material.dynamicFriction.ToString("n10");
-        staticFriction.GetComponent<InputField>().text = butter.material.staticFriction.ToString("n10");
+        posX.GetComponent<InputField>().text = transform.position.x.ToString("n5");
+        posY.GetComponent<InputField>().text = transform.position.y.ToString("n5");
+        posZ.GetComponent<InputField>().text = transform.position.z.ToString("n5");
+        rotX.GetComponent<InputField>().text = transform.rotation.eulerAngles.x.ToString("n5");
+        rotY.GetComponent<InputField>().text = transform.rotation.eulerAngles.y.ToString("n5");
+        rotZ.GetComponent<InputField>().text = transform.rotation.eulerAngles.z.ToString("n5");
+        sclX.GetComponent<InputField>().text = transform.localScale.x.ToString("n5");
+        sclY.GetComponent<InputField>().text = transform.localScale.y.ToString("n5");
+        sclZ.GetComponent<InputField>().text = transform.localScale.z.ToString("n5");
+        velX.GetComponent<InputField>().text = rbm.vel.x.ToString("n5");
+        velY.GetComponent<InputField>().text = rbm.vel.y.ToString("n5");
+        velZ.GetComponent<InputField>().text = rbm.vel.z.ToString("n5");
+        angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString("n5");
+        angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString("n5");
+        angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString("n5");
+        mass.GetComponent<InputField>().text = rbm.mass.ToString("n5");
+        dynamicFriction.GetComponent<InputField>().text = butter.material.dynamicFriction.ToString("n5");
+        staticFriction.GetComponent<InputField>().text = butter.material.staticFriction.ToString("n5");
         trueBounce = butter.material.bounciness / bounceFactor;
-        elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n10");
+        elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n5");
         elasticitySlider.GetComponent<Slider>().value = float.Parse(elasticityInput.GetComponent<InputField>().text);
         butter.material.bounciness = trueBounce * bounceFactor;
         staticToggle.GetComponent<Toggle>().isOn = rbm.isStatic;
+        
     }
 
     public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
@@ -179,7 +180,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
             if (pm.isSliderChanged)
             {
                 trueBounce = elasticitySlider.GetComponent<Slider>().value;
-                elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n10");
+                elasticityInput.GetComponent<InputField>().text = trueBounce.ToString("n5");
             }
             if (!pm.isSliderChanged)
             {
@@ -192,7 +193,12 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     public void reset()
     {
-        //transform.position = 
+        Debug.Log("Mein Kampf");
+        transform.position = rsPos;
+        transform.eulerAngles = rsRot;
+        rbm.rot = rsAngVel;
+        rbm.vel = rsVel;
+        Compile();
     }
 
     IEnumerator Waiter()
