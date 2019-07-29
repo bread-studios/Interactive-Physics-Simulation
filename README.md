@@ -50,25 +50,25 @@ The following can be viewed on the Properties Panel.
 
 - Position - The Position property shows the coordinate position (x,y,z) of the selected object. Can be changed by editing the fields, effect is immediate.
 
-- Rotation - The Rotation property shows the amount that the object is rotated by. Can be changed by editing the fields, effect is immediate.
+- Rotation - The Rotation property shows the amount that the selected object is rotated by. Can be changed by editing the fields, effect is immediate.
 
-- Scale
+- Scale - The Scale property shows the relative size of the object. Can be changed by editing the field, effect is immediate.
 
-- Velocity
+- Velocity - The Velocity property shows the speed in meters per second of the center of the selected object through the environment. Can be changed by editing the fields, effect is immediate.
 
-- Angular Velocity
+- Angular Velocity - The Angular Velocity property shows the speed in meters per second of the rotation of each axis of the object. Can be changed by editing the fields, effect is immediate.
 
-- Mass
+- Mass - The Mass property shows the relative mass of the object. Can be changed by editing the field, effect is immediate.
 
-- Friction
+- Friction - The Friction property shows the friction of the object, which ranges from no parallel energy conserved when contact with another object occurs, to having lost no parallel energy when contact with a flat object occurs. Can be changed by editing the fields, effect is immediate, although it may not be immediately visible on an object already at rest.
 
-- Elasticity
+- Elasticity - The Elasticity property shows the coefficcient of bounciness of an object, effectively showing how much vertical energy is conserved when contact with an object is made. It ranges from zero (0) to one (1), 1 meaning that it will bounce just as high each time on a rigid, flat surface, 0 meaning that it will come to a dead stop upon hitting a flat surface. Can be changed by moving the slider, effect is immediate.
 
-- Static Checkbox
+- Static Checkbox - The Static property shows whether or not the object is able to move. Enabling will prevent all movement on the part of that object, although other non-static objects may still interact with it. Can be changed by ticking the box, effect is immediate.
 
 **Global**: 
 The following can be viewed on the Global Settings Panel.
 
-- Gravity Vector (Hotkey: G) - The gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. Effect is apparent when the environment is unpaused (see Play The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before.
+- Gravity Vector (Hotkey: G) - The gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before. Can be changed by moving the slider, effect is immediate.
 
 -----------------------
