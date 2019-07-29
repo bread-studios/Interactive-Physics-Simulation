@@ -45,7 +45,7 @@ There are several different mechanics in our program for you, the user, to utili
 # Properties
 In our program, there are two types of properties: local, and global. Local properties only affect one item or a group of items, while global properties affect the entire environment. This section will explain what each individual property does and how to edit it.
 
-**Local**: 
+**Local:** 
 The following can be viewed on the Properties Panel.
 
 - Position - The Position property shows the coordinate position (x,y,z) of the selected object. Can be changed by editing the fields, effect is immediate.
@@ -66,9 +66,15 @@ The following can be viewed on the Properties Panel.
 
 - Static Checkbox - The Static property shows whether or not the object is able to move. Enabling will prevent all movement on the part of that object, although other non-static objects may still interact with it. Can be changed by ticking the box, effect is immediate.
 
-**Global**: 
+**Global:** 
 The following can be viewed on the Global Settings Panel.
 
 - Gravity Vector (Hotkey: G) - The gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before. Can be changed by moving the slider, effect is immediate.
 
 -----------------------
+
+**Remember:**
+
+We know that our program is an endless beacon of utility and entertainment, but remember to take a break every once in a while. It's important to go outside, have some fun outside of our program, and to drink plently of water.
+
+Alright, that's it. Have fun!
