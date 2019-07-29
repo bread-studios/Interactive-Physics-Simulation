@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -910,11 +910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e43a75b1156fef4c8bf2881ab74999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityVertical: 1
-  mouseSensitivityHorizontal: 1
-  cameraStartSpeed: 1
-  cameraAccel: 0.1
-  cameraSpeed: 0
+  mouseSensitivityVertical: 5
+  mouseSensitivityHorizontal: 5
+  cameraStartSpeed: 5
+  cameraAccel: 5
+  cameraSpeed: 5
   maxCameraSpeed: 5
 --- !u!114 &138619150
 MonoBehaviour:
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: efb94460ff4854b41b88e4f454e83d02, type: 2}
+  profile: {fileID: 0}
 --- !u!1 &146729826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1e8915493312c4abcf2f8600733dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: 100
+  GridSize: 0
 --- !u!4 &188784506
 Transform:
   m_ObjectHideFlags: 0
@@ -2043,7 +2043,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 374995206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1515896814}
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &374995206
@@ -5320,7 +5331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &959914652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7720,6 +7731,7 @@ GameObject:
   - component: {fileID: 1515896815}
   - component: {fileID: 1515896814}
   - component: {fileID: 1515896816}
+  - component: {fileID: 1515896817}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -7774,6 +7786,18 @@ MonoBehaviour:
   gravX: {fileID: 2052335367}
   gravY: {fileID: 38643266}
   gravZ: {fileID: 990214650}
+--- !u!114 &1515896817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515896813}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eee82a25b104c2499ea3e8f5dee10d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Manager: {fileID: 0}
 --- !u!1 &1541789675
 GameObject:
   m_ObjectHideFlags: 0
@@ -7867,7 +7891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eee82a25b104c2499ea3e8f5dee10d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 1515896813}
+  Manager: {fileID: 0}
 --- !u!1 &1564760643
 GameObject:
   m_ObjectHideFlags: 0

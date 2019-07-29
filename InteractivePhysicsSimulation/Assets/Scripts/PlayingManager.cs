@@ -74,4 +74,9 @@ public class PlayingManager : MonoBehaviour
     {
         isSliderChanged = false;
     }
+
+    public void reset() {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.reset();
+    }
 }

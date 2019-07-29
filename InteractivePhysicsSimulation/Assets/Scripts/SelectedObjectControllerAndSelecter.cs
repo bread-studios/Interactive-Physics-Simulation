@@ -20,7 +20,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     //the reset button will bring the objects to these values:
     private Vector3 rsPos;
     private Vector3 rsRot;
-    private Vector3 rsScl;
     private Vector3 rsVel;
     private Vector3 rsAngVel;
     //UI gameobjects
@@ -51,8 +50,11 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private float speed;
 
 
-    private void Start()
-    {
+    private void Start() { 
+        rsPos = new Vector3(0, 1, 0);
+        rsRot = new Vector3(0, 0, 0);
+        rsVel = new Vector3(0, 0, 0);
+        rsAngVel = new Vector3(0, 0, 0);
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -194,7 +196,12 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     public void reset()
     {
-        //transform.position = 
+        Debug.Log("Mein Kampf");
+        transform.position = rsPos;
+        transform.eulerAngles = rsRot;
+        rbm.rot = rsAngVel;
+        rbm.vel = rsVel;
+        Compile();
     }
 
     IEnumerator Waiter()
