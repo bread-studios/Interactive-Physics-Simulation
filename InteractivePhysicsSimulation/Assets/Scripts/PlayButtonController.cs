@@ -23,7 +23,7 @@ public class PlayButtonController : MonoBehaviour , IPointerClickHandler , IPoin
         tempColor.a = 1f;
         img.color = tempColor;
 
-        rt.sizeDelta = new Vector2(130, 35f);
+        rt.sizeDelta = new Vector2(50, 50f);
 
         img.sprite = ps;
     }
@@ -62,12 +62,24 @@ public class PlayButtonController : MonoBehaviour , IPointerClickHandler , IPoin
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        rt.sizeDelta = new Vector2(117,31.5f);
+        rt.sizeDelta = new Vector2(50, 50f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        rt.sizeDelta = new Vector2(130, 35f);
+        rt.sizeDelta = new Vector2(50, 50f);
+    }
+
+    public void Switch()
+    {
+        if (img.sprite == ps)
+        {
+            img.sprite = ss;
+        }
+        else
+        {
+            img.sprite = ps;
+        }
     }
 
 }
