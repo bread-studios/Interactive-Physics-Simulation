@@ -13,6 +13,12 @@ public class GravityManager : MonoBehaviour
     public GameObject gravY;
     public GameObject gravZ;
 
+    public bool isTimerEnabled;
+
+    public GameObject timer;
+    public GameObject timerToggle;
+    public float timerTime;
+
     public Vector3 startGrav;
 
     //Set gravity to be regular earth gravity
@@ -21,6 +27,7 @@ public class GravityManager : MonoBehaviour
         Physics.gravity = startGrav;
         direction = upperLimitVector(10000, Physics.gravity);
         AntiGravityKidsReactToPropertyDamage();
+        isTimerEnabled = false;
     }
 
     void Update()
@@ -43,8 +50,13 @@ public class GravityManager : MonoBehaviour
         }
     }
 
+    public void toggleTimer()
+    {
+        isTimerEnabled = !isTimerEnabled;
+    }
+
     //Update the text fields to show the current gravity vector
-    void AntiGravityKidsReactToPropertyDamage()
+    public void AntiGravityKidsReactToPropertyDamage()
     {
         gravX.GetComponent<InputField>().text = direction.x.ToString("g0");
         gravY.GetComponent<InputField>().text = direction.y.ToString("g0");
@@ -52,8 +64,12 @@ public class GravityManager : MonoBehaviour
     }
 
     //Update the gravity vector to be what the text fields show
-    void AntiGravityParentsReactToKidDamage()
+    public void AntiGravityParentsReactToKidDamage()
     {
+        if (isTimerEnabled) //this is line 69
+        {
+            timerTime = float.Parse(timer.GetComponent<InputField>().text);
+        }
         direction = upperLimitVector(10000, new Vector3(float.Parse(gravX.GetComponent<InputField>().text),
             float.Parse(gravY.GetComponent<InputField>().text),
             float.Parse(gravZ.GetComponent<InputField>().text)));
