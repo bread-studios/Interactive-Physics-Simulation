@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayingManager : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class PlayingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp("p"))
+        if (Input.GetKeyUp(KeyCode.P))
         {
             TogglePlayPause();
         }
@@ -43,6 +44,21 @@ public class PlayingManager : MonoBehaviour
         else
         {
             PropertiesPanel.SetActive(true);
+        }
+        //Demo presets
+        if (Input.GetKeyUp("1"))
+        {
+            Debug.Log("Tried to load scene 1");
+            SceneManager.LoadScene("Main");
+        }
+        if (Input.GetKeyUp("2"))
+        {
+            Debug.Log("Tried to load scene 2");
+            SceneManager.LoadScene("Other");
+        }
+        if (Input.GetKeyUp("3"))
+        {
+
         }
     }
 

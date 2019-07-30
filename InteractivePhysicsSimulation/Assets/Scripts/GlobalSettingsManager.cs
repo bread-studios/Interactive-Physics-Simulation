@@ -1,5 +1,5 @@
 ﻿/**
- * This class is where all global variables will be managed and changed
+ * This class is where most global variables will be managed and changed.
  */
 
 using System.Collections;
@@ -9,12 +9,14 @@ using UnityEngine.UI;
 
 public class GlobalSettingsManager : MonoBehaviour {
 
+    //Managers
     private GameObject m;
+
+    //Other GameObjects
     private GameObject GridMaker;
     private GameObject gridToggle;
     
-
-	//Initialize all GameObjects
+	//Define all GameObjects
 	void Start () {
         m = GameObject.FindWithTag("Manager");
         GridMaker = GameObject.FindWithTag("GridMaker");
@@ -22,13 +24,10 @@ public class GlobalSettingsManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (gridToggle.GetComponent<Toggle>().isOn)
-        {
+        //Grid Toggle Check Box
+        if (gridToggle.GetComponent<Toggle>().isOn)
             GridMaker.SetActive(true);
-        }
         else
-        {
             GridMaker.SetActive(false);
-        }
-	}
+    }
 }
