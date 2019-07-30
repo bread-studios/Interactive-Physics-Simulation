@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayingManager : MonoBehaviour
 {
-
     public GameObject Selected;
     public GameObject PropertiesPanel;
     public GameObject GlobOptionPanel;
-    public SelectedObjectControllerAndSelecter socas;
-    public RigidBodyManager rbm;
+    private SelectedObjectControllerAndSelecter socas;
+    private RigidBodyManager rbm;
+    public PlayButtonController pbc;
+    public GravityManager gm;
     public bool isSliderChanged;
 
-    private void Start()
+    void Start()
     {
         PropertiesPanel.SetActive(true);
         GlobOptionPanel.SetActive(false);
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
+        gm = gameObject.GetComponent<GravityManager>();
+        pbc = GameObject.FindWithTag("PlayButton").GetComponent<PlayButtonController>();
     }
 
     public bool IsPlaying = false;
@@ -44,7 +49,19 @@ public class PlayingManager : MonoBehaviour
 
     public void TogglePlayPause()
     {
-        IsPlaying = !IsPlaying;
+        Debug.Log("Toggle");
+        if (gm.isTimerEnabled)
+        {
+            Debug.Log("1");
+            StopCoroutine("Waiter");
+            IsPlaying = !IsPlaying;
+            StartCoroutine("Waiter");
+        }
+        else
+        {
+            Debug.Log("2");
+            IsPlaying = !IsPlaying;
+        }
     }
     public void ReactToPropertyChange()
     {
@@ -60,8 +77,6 @@ public class PlayingManager : MonoBehaviour
 
     public void ToggleStatic()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        rbm = Selected.GetComponent<RigidBodyManager>();
         rbm.isStatic = !rbm.isStatic;
     }
 
@@ -75,8 +90,19 @@ public class PlayingManager : MonoBehaviour
         isSliderChanged = false;
     }
 
-    public void reset() {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+    public void reset()
+    {
         socas.reset();
+    }
+
+    public IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(gm.timerTime);
+        if (IsPlaying)
+        {
+            pbc.Switch();
+            IsPlaying = !IsPlaying;
+
+        }
     }
 }

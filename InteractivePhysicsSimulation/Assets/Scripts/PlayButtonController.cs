@@ -70,4 +70,16 @@ public class PlayButtonController : MonoBehaviour , IPointerClickHandler , IPoin
         rt.sizeDelta = new Vector2(130, 35f);
     }
 
+    public void Switch()
+    {
+        if (img.sprite == ps)
+        {
+            img.sprite = ss;
+        }
+        else
+        {
+            img.sprite = ps;
+        }
+    }
+
 }
