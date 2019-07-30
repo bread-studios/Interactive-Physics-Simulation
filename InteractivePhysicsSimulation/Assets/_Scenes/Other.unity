@@ -2804,6 +2804,11 @@ Prefab:
       propertyPath: startStFric
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 23651810681567284, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 28b52a4e3cdabcb4ba6eab0afd65454f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
   m_IsPrefabParent: 0
@@ -6688,6 +6693,16 @@ Prefab:
       propertyPath: startStFric
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114943708432897816, guid: da6bc528f66dda64bb807faeb9de1f47,
+        type: 2}
+      propertyPath: rsRot.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 23481419817553498, guid: da6bc528f66dda64bb807faeb9de1f47,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 28b52a4e3cdabcb4ba6eab0afd65454f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da6bc528f66dda64bb807faeb9de1f47, type: 2}
   m_IsPrefabParent: 0
