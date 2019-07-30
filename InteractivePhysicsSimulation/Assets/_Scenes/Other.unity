@@ -256,12 +256,12 @@ Prefab:
     - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
         type: 2}
       propertyPath: startDyFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
         type: 2}
       propertyPath: startStFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
         type: 2}
@@ -2942,12 +2942,12 @@ Prefab:
     - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
       propertyPath: startDyFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
       propertyPath: startStFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23651810681567284, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
@@ -4599,12 +4599,12 @@ Prefab:
     - target: {fileID: 114403311075600430, guid: e06be632ea950354ebf701b605a91291,
         type: 2}
       propertyPath: startDyFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114403311075600430, guid: e06be632ea950354ebf701b605a91291,
         type: 2}
       propertyPath: startStFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e06be632ea950354ebf701b605a91291, type: 2}
@@ -6900,12 +6900,12 @@ Prefab:
     - target: {fileID: 114943708432897816, guid: da6bc528f66dda64bb807faeb9de1f47,
         type: 2}
       propertyPath: startDyFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114943708432897816, guid: da6bc528f66dda64bb807faeb9de1f47,
         type: 2}
       propertyPath: startStFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114943708432897816, guid: da6bc528f66dda64bb807faeb9de1f47,
         type: 2}
@@ -8497,8 +8497,8 @@ MonoBehaviour:
   Selected: {fileID: 0}
   PropertiesPanel: {fileID: 1973959449}
   GlobOptionPanel: {fileID: 959914651}
-  socas: {fileID: 0}
-  rbm: {fileID: 0}
+  pbc: {fileID: 2141287455}
+  gm: {fileID: 1515896816}
   isSliderChanged: 0
   IsPlaying: 0
   GSPIsEnabled: 0
@@ -8530,6 +8530,10 @@ MonoBehaviour:
   gravX: {fileID: 2052335367}
   gravY: {fileID: 38643266}
   gravZ: {fileID: 990214650}
+  isTimerEnabled: 0
+  timer: {fileID: 2092062635}
+  timerToggle: {fileID: 1810554335}
+  timerTime: 0
   startGrav: {x: 0, y: -9.81, z: 0}
 --- !u!114 &1515896817
 MonoBehaviour:
@@ -9074,7 +9078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.960938, y: -24.960999}
+  m_AnchoredPosition: {x: -24.960938, y: -24.960938}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644185255
@@ -9393,7 +9397,7 @@ GameObject:
   - component: {fileID: 1810554336}
   - component: {fileID: 1810554337}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: TimerToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9459,10 +9463,21 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1515896816}
+        m_MethodName: toggleTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1817173096
 GameObject:
   m_ObjectHideFlags: 0
@@ -9602,12 +9617,12 @@ Prefab:
     - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
         type: 2}
       propertyPath: startDyFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
         type: 2}
       propertyPath: startStFric
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
@@ -10522,8 +10537,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ReactToPropertyChange
+      - m_Target: {fileID: 1515896816}
+        m_MethodName: AntiGravityParentsReactToKidDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10711,7 +10726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 21300000, guid: fbfacf63265a27245abb31755a8c789a, type: 3}
   ss: {fileID: 21300000, guid: 520f2106d0bc0f64da4f877e256893c5, type: 3}
-  m: {fileID: 0}
+  m: {fileID: 1515896813}
 --- !u!114 &2141287457
 MonoBehaviour:
   m_ObjectHideFlags: 0
