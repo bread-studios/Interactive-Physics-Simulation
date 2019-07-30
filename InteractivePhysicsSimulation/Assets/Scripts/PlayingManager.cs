@@ -32,6 +32,10 @@ public class PlayingManager : MonoBehaviour
         {
             ToggleGlobalSettingsWindow();
         }
+        if (Input.GetKey("escape"))
+        {
+            closeApplication();
+        }
         if (Selected == null)
         {
             PropertiesPanel.SetActive(false);
@@ -41,22 +45,27 @@ public class PlayingManager : MonoBehaviour
             PropertiesPanel.SetActive(true);
         }
         //Demo presets
-        if (Input.GetKeyUp("1"))
+        if (Input.GetKeyUp("z"))
         {
             Debug.Log("Tried to load scene 1");
             SceneManager.LoadScene("Main");
         }
-        if (Input.GetKeyUp("2"))
+        if (Input.GetKeyUp("x"))
         {
             Debug.Log("Tried to load scene 2");
             SceneManager.LoadScene("Other");
         }
-        if (Input.GetKeyUp("3"))
+        if (Input.GetKeyUp("c"))
         {
 
         }
     }
 
+    //Putting this in a class so that a button click may trigger it
+    public void closeApplication()
+    {
+        Application.Quit();
+    }
 
     public void TogglePlayPause()
     {
