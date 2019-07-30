@@ -39,11 +39,13 @@ public class CameraController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftAlt))
             {
+                yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
                 roll += mouseSensitivityHorizontal * -Input.GetAxisRaw("Mouse X");
                 pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
             }
             else
             {
+
                 yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
                 pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
                 roll = 0;
