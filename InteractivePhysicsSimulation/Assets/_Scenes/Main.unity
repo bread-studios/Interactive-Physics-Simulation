@@ -8494,8 +8494,8 @@ MonoBehaviour:
   Selected: {fileID: 0}
   PropertiesPanel: {fileID: 1973959449}
   GlobOptionPanel: {fileID: 959914651}
-  socas: {fileID: 0}
-  rbm: {fileID: 0}
+  pbc: {fileID: 0}
+  gm: {fileID: 0}
   isSliderChanged: 0
   IsPlaying: 0
   GSPIsEnabled: 0
@@ -8527,6 +8527,10 @@ MonoBehaviour:
   gravX: {fileID: 2052335367}
   gravY: {fileID: 38643266}
   gravZ: {fileID: 990214650}
+  isTimerEnabled: 0
+  timer: {fileID: 0}
+  timerToggle: {fileID: 0}
+  timerTime: 0
   startGrav: {x: 0, y: -9.81, z: 0}
 --- !u!114 &1515896817
 MonoBehaviour:
@@ -10513,8 +10517,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -80, y: 30}
-  m_SizeDelta: {x: 130, y: 35}
+  m_AnchoredPosition: {x: -30, y: 30}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141287455
 MonoBehaviour:
@@ -10527,8 +10531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf7ab26aa7590c47abfad583b9ee2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 21300000, guid: fbfacf63265a27245abb31755a8c789a, type: 3}
-  ss: {fileID: 21300000, guid: 520f2106d0bc0f64da4f877e256893c5, type: 3}
+  ps: {fileID: 21300000, guid: 9648afe7a4d74344a9641b9ed4f6f18f, type: 3}
+  ss: {fileID: 21300000, guid: e0e5239c276b1b743be3c8cbdeb11705, type: 3}
   m: {fileID: 0}
 --- !u!114 &2141287457
 MonoBehaviour:
@@ -10549,7 +10553,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fbfacf63265a27245abb31755a8c789a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9648afe7a4d74344a9641b9ed4f6f18f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
