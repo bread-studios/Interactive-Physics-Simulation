@@ -1,6 +1,6 @@
 # Interactive Physics Simulation
 
-Thank you for using our super cool interactive physics simulation, made and shipped to you lovingly by three greasy high-schoolers: Muyang Yan, Austyn Ngo, and Greggory Hickman.
+Thank you for using our super cool interactive physics simulation, made and shipped to you lovingly by four greasy high-schoolers: David Zager, Muyang Yan, Austyn Ngo, and Greggory Hickman.
 
 In this file you will find:
 - Detailed instructions on how to use our program
