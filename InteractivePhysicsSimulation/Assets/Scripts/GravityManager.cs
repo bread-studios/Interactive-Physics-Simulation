@@ -25,14 +25,14 @@ public class GravityManager : MonoBehaviour
     void Start()
     {
         Physics.gravity = startGrav;
-        direction = enforceUpperLimit(10000, Physics.gravity);
+        direction = upperLimitVector(10000, Physics.gravity);
         AntiGravityKidsReactToPropertyDamage();
         isTimerEnabled = false;
     }
 
     void Update()
     {
-        enforceUpperLimit(10000, direction);
+        direction = upperLimitVector(10000, direction);
         if (currentDirection != direction)
         {
             changeGravity(direction);
@@ -70,14 +70,13 @@ public class GravityManager : MonoBehaviour
         {
             timerTime = float.Parse(timer.GetComponent<InputField>().text);
         }
-        
-        direction = enforceUpperLimit(10000, new Vector3(float.Parse(gravX.GetComponent<InputField>().text),
+        direction = upperLimitVector(10000, new Vector3(float.Parse(gravX.GetComponent<InputField>().text),
             float.Parse(gravY.GetComponent<InputField>().text),
             float.Parse(gravZ.GetComponent<InputField>().text)));
     }
 
     //If the gravity gets too high or low herobrine will haunt your game
-    Vector3 enforceUpperLimit(int upperLimit, Vector3 direction)
+    public Vector3 upperLimitVector(int upperLimit, Vector3 direction)
     {
         if (direction.x > upperLimit)
             direction.x = upperLimit;

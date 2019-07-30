@@ -11,8 +11,9 @@ public class EditRamp : MonoBehaviour
     private float yScale;
     private float zScale;
 
-	// Update is called once per frame
-	void Update ()
+    #pragma warning disable
+    // Update is called once per frame
+    void Update ()
     {
         if (angle <= 0)
         {
