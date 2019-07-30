@@ -13,10 +13,12 @@ public class GravityManager : MonoBehaviour
     public GameObject gravY;
     public GameObject gravZ;
 
+    public Vector3 startGrav;
+
     //Set gravity to be regular earth gravity
     void Start()
     {
-        Physics.gravity = new Vector3(0, -9.81f, 0);
+        Physics.gravity = startGrav;
         direction = enforceUpperLimit(10000, Physics.gravity);
         AntiGravityKidsReactToPropertyDamage();
     }

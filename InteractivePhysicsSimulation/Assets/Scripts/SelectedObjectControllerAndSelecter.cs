@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectedObjectControllerAndSelecter : MonoBehaviour
-{
-
+{ 
+    
     private GameObject Manager;
     private PlayingManager pm;
     private Material SelectedMat;
@@ -15,13 +15,15 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private bool isSelected;
     private HighlightDetectionUI hdui;
     private Collider butter;
-    private float trueBounce;
+    public float trueBounce;
+    public float startDyFric;
+    public float startStFric;
     private float bounceFactor = 0.98823535f;
     //the reset button will bring the objects to these values:
-    private Vector3 rsPos;
-    private Vector3 rsRot;
-    private Vector3 rsVel;
-    private Vector3 rsAngVel;
+    public Vector3 rsPos;
+    public Vector3 rsRot;
+    public Vector3 rsVel;
+    public Vector3 rsAngVel;
     //UI gameobjects
     private GameObject cvs; //canvas
     private GameObject playButton;
@@ -49,9 +51,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
 
     private void Start() { 
-        rsPos = new Vector3(0, 1, 0);
-        rsRot = new Vector3(0, 0, 0);
-        rsVel = new Vector3(0, 0, 0);
         rsAngVel = new Vector3(0, 0, 0);
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
@@ -68,7 +67,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         trueBounce = butter.material.bounciness / bounceFactor;
         butter.material.bounciness = trueBounce * bounceFactor;
-        trueBounce = 0.5f;
         butter.material.bounciness = trueBounce * bounceFactor;
         trueBounce = butter.material.bounciness / bounceFactor;
 
@@ -97,10 +95,18 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         dynamicFriction = GameObject.Find("DynamicFrictionInput");
         staticFriction = GameObject.Find("StaticFrictionInput");
 
+        dynamicFriction.GetComponent<InputField>().text = startDyFric.ToString();
+        staticFriction.GetComponent<InputField>().text = startStFric.ToString();
+        butter.material.dynamicFriction = startDyFric;
+        butter.material.staticFriction = startStFric;
+
         elasticityInput = GameObject.Find("ElasticityInput");
         elasticitySlider = GameObject.Find("ElasticitySlider");
 
         staticToggle = GameObject.Find("Static");
+
+        KidsReactToPropertyDamage();
+        Compile();
     }
 
     private void Update()
@@ -193,7 +199,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     public void reset()
     {
-        Debug.Log("Mein Kampf");
         transform.position = rsPos;
         transform.eulerAngles = rsRot;
         rbm.rot = rsAngVel;
