@@ -23,7 +23,7 @@ Our program uses simple, easy to remember controls. This section will explain wh
 
 - SPACE - Move directly upwards
 
-- SHIFT - Move Directly downwards
+- SHIFT - Move directly downwards
 
 - RIGHT MOUSE BUTTON - Hold and move the mouse to look around
 
