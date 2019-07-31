@@ -50,7 +50,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject elasticityInput;
     public GameObject staticToggle;
 
-    private void Start() { 
+    private void Awake() { 
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -106,10 +106,9 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
         staticToggle = GameObject.Find("Static");
 
-        KidsReactToPropertyDamage();
-
         reset();
         Compile();
+        KidsReactToPropertyDamage();
     }
 
     private void Update()
@@ -162,6 +161,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         angularVelX.GetComponent<InputField>().text = rbm.rot.x.ToString("n5");
         angularVelY.GetComponent<InputField>().text = rbm.rot.y.ToString("n5");
         angularVelZ.GetComponent<InputField>().text = rbm.rot.z.ToString("n5");
+        Debug.Log(rbm.mass);
         mass.GetComponent<InputField>().text = rbm.mass.ToString("n5");
         dynamicFriction.GetComponent<InputField>().text = butter.material.dynamicFriction.ToString("n5");
         staticFriction.GetComponent<InputField>().text = butter.material.staticFriction.ToString("n5");
@@ -203,6 +203,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     {
         transform.position = rsPos;
         transform.eulerAngles = rsRot;
+        rbm.mass = startMass;
         rbm.rot = rsAngVel;
         rbm.vel = rsVel;
         Compile();

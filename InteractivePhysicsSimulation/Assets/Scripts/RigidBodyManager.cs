@@ -13,7 +13,7 @@ public class RigidBodyManager : MonoBehaviour
     public Vector3 rot;
     public Vector3 acc;//Not used yet
     public bool isStatic;
-    void Start()
+    void Awake()
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
                 | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |

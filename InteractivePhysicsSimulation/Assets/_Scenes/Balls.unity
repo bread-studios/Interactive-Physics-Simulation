@@ -4272,6 +4272,7 @@ GameObject:
   - component: {fileID: 806359826}
   - component: {fileID: 806359828}
   - component: {fileID: 806359827}
+  - component: {fileID: 806359830}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -4343,6 +4344,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806359830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806359825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5176d6a0f27f504fb3058eebc3b0d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socas: {fileID: 0}
 --- !u!1 &823368614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,51 +8564,6 @@ Prefab:
     - target: {fileID: 1895198296184654, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
       propertyPath: m_Name
       value: Sphere 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: rsPos.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: rsPos.z
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114679397117360482, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: isStatic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23651810681567284, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 302726c9341209c47907c2bfe380e670, type: 2}
-    - target: {fileID: 114679397117360482, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: rsVel.z
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 114679397117360482, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: vel.z
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: startBounce
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
-        type: 2}
-      propertyPath: startMass
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}

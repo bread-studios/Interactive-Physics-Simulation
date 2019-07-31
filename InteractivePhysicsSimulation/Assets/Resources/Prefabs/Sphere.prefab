@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895198296184654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 302726c9341209c47907c2bfe380e670, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,11 +114,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trueBounce: 0
+  startBounce: 0.6
   startDyFric: 0
   startStFric: 0
-  rsPos: {x: 0, y: 100, z: 0}
+  startMass: 5
+  rsPos: {x: 0, y: 0.5, z: -5}
   rsRot: {x: 0, y: 0, z: 0}
-  rsVel: {x: 0, y: 0, z: 0}
+  rsVel: {x: 0, y: 0, z: 200}
   rsAngVel: {x: 0, y: 0, z: 0}
   staticToggle: {fileID: 0}
 --- !u!114 &114679397117360482
@@ -132,11 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e30e9adf08422b49931de7b18b0b148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 0
-  vel: {x: 0, y: 0, z: 0}
+  mass: 5
+  vel: {x: 0, y: 0, z: 200}
   rot: {x: 0, y: 0, z: 0}
   acc: {x: 0, y: 0, z: 0}
-  isStatic: 1
+  isStatic: 0
 --- !u!135 &135305915000051482
 SphereCollider:
   m_ObjectHideFlags: 1
