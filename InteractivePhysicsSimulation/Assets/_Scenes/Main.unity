@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
+  profile: {fileID: 11400000, guid: efb94460ff4854b41b88e4f454e83d02, type: 2}
 --- !u!1 &146729826
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,10 +4943,21 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1515896816}
+        m_MethodName: toggleTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!4 &867766405 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291,
@@ -8494,8 +8505,8 @@ MonoBehaviour:
   Selected: {fileID: 0}
   PropertiesPanel: {fileID: 1973959449}
   GlobOptionPanel: {fileID: 959914651}
-  pbc: {fileID: 0}
-  gm: {fileID: 0}
+  pbc: {fileID: 2141287455}
+  gm: {fileID: 1515896816}
   isSliderChanged: 0
   IsPlaying: 0
   GSPIsEnabled: 0
@@ -8528,8 +8539,8 @@ MonoBehaviour:
   gravY: {fileID: 38643266}
   gravZ: {fileID: 990214650}
   isTimerEnabled: 0
-  timer: {fileID: 0}
-  timerToggle: {fileID: 0}
+  timer: {fileID: 2079780265}
+  timerToggle: {fileID: 867065817}
   timerTime: 0
   startGrav: {x: 0, y: -9.81, z: 0}
 --- !u!114 &1515896817
@@ -10533,7 +10544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ps: {fileID: 21300000, guid: 9648afe7a4d74344a9641b9ed4f6f18f, type: 3}
   ss: {fileID: 21300000, guid: e0e5239c276b1b743be3c8cbdeb11705, type: 3}
-  m: {fileID: 0}
+  m: {fileID: 1515896813}
 --- !u!114 &2141287457
 MonoBehaviour:
   m_ObjectHideFlags: 0

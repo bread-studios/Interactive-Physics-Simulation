@@ -46,17 +46,17 @@ public class PlayingManager : MonoBehaviour
             PropertiesPanel.SetActive(true);
         }
         //Demo presets
-        if (Input.GetKeyUp("1"))
+        if (Input.GetKeyUp("z"))
         {
             Debug.Log("Tried to load scene 1");
             SceneManager.LoadScene("Main");
         }
-        if (Input.GetKeyUp("2"))
+        if (Input.GetKeyUp("x"))
         {
             Debug.Log("Tried to load scene 2");
             SceneManager.LoadScene("Other");
         }
-        if (Input.GetKeyUp("3"))
+        if (Input.GetKeyUp("c"))
         {
 
         }
@@ -82,32 +82,43 @@ public class PlayingManager : MonoBehaviour
     public void ReactToPropertyChange()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         socas.KidsReactToPropertyDamage();
     }
 
     public void ToggleGlobalSettingsWindow()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         GSPIsEnabled = !GSPIsEnabled;
         GlobOptionPanel.SetActive(GSPIsEnabled);
     }
 
     public void ToggleStatic()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         rbm.isStatic = !rbm.isStatic;
     }
 
     public void SliderChanged()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = true;
     }
 
     public void NotSliderChanged()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = false;
     }
 
     public void reset()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        rbm = Selected.GetComponent<RigidBodyManager>();
         socas.reset();
     }
 
@@ -116,9 +127,8 @@ public class PlayingManager : MonoBehaviour
         yield return new WaitForSeconds(gm.timerTime);
         if (IsPlaying)
         {
-            pbc.Switch();
             IsPlaying = !IsPlaying;
-
+            pbc.Switch();
         }
     }
 }

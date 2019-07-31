@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SelectedObjectControllerAndSelecter : MonoBehaviour
 { 
-    
     private GameObject Manager;
     private PlayingManager pm;
     private Material SelectedMat;
@@ -16,8 +15,10 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private HighlightDetectionUI hdui;
     private Collider butter;
     public float trueBounce;
+    public float startBounce;
     public float startDyFric;
     public float startStFric;
+    public float startMass;
     private float bounceFactor = 0.98823535f;
     //the reset button will bring the objects to these values:
     public Vector3 rsPos;
@@ -49,9 +50,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject elasticityInput;
     public GameObject staticToggle;
 
-
     private void Start() { 
-        rsAngVel = new Vector3(0, 0, 0);
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -66,6 +65,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.bounceCombine = PhysicMaterialCombine.Average;
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         trueBounce = butter.material.bounciness / bounceFactor;
+        trueBounce = startBounce;
         butter.material.bounciness = trueBounce * bounceFactor;
         butter.material.bounciness = trueBounce * bounceFactor;
         trueBounce = butter.material.bounciness / bounceFactor;
@@ -99,6 +99,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         staticFriction.GetComponent<InputField>().text = startStFric.ToString();
         butter.material.dynamicFriction = startDyFric;
         butter.material.staticFriction = startStFric;
+        rbm.mass = startMass;
 
         elasticityInput = GameObject.Find("ElasticityInput");
         elasticitySlider = GameObject.Find("ElasticitySlider");
@@ -106,6 +107,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         staticToggle = GameObject.Find("Static");
 
         KidsReactToPropertyDamage();
+
+        reset();
         Compile();
     }
 
@@ -113,7 +116,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     {
         trueBounce = butter.material.bounciness / bounceFactor;
         butter.material.bounciness = trueBounce * bounceFactor;
-        butter.material.bounceCombine = PhysicMaterialCombine.Average   ;
+        butter.material.bounceCombine = PhysicMaterialCombine.Average;
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         if (pm.Selected == gameObject && pm.IsPlaying == true)
         {
@@ -167,7 +170,6 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         elasticitySlider.GetComponent<Slider>().value = float.Parse(elasticityInput.GetComponent<InputField>().text);
         butter.material.bounciness = trueBounce * bounceFactor;
         staticToggle.GetComponent<Toggle>().isOn = rbm.isStatic;
-        
     }
 
     public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
