@@ -77,8 +77,8 @@ The following can be viewed on the Global Settings Panel.
 
 -----------------------
 
-# Demo Only
-In the demo version of Physdom, we have some addition features meant to show off the applications and mechanics of our program. This section shows how to use them.
+# Demo
+In the demo version of Physdom, we have some additional features meant to show off the applications and mechanics of our program. This section shows what they are and how to use them.
 
 - Pre-Made Maps (Hotkeys: Z, X, C) - By pressing each of the hotkeys, the user may switch in between the three pre-made environments that we have made to show off how our program handles different situations. This is a temporary feature, and will be removed upon launch.
 
