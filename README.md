@@ -1,6 +1,6 @@
 # Physdom README
 
-Thank you for using our super cool interactive physics simulation, **Physdom** made and shipped to you lovingly by four greasy high-schoolers: David Zager, Muyang Yan, Austyn Ngo, and Greggory Hickman.
+Thank you for using our super cool interactive physics simulation, **Physdom**, made and shipped to you lovingly by four greasy high-schoolers: David Zager, Muyang Yan, Austyn Ngo, and Greggory Hickman.
 
 **Physdom** is a Physics Simulation Program made with Unity's physics engine created to help physics students understand several basic physics concepts relating to forces and acceleration. In it, the user may interact with objects such as cubes, spheres, and ramps, and watch as they move and collide with other objects in the simulated environment. The user may edit several properties about the simulated environment, and the objects themselves.
 
