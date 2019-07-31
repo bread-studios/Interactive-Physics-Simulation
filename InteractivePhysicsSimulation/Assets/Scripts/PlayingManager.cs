@@ -13,7 +13,9 @@ public class PlayingManager : MonoBehaviour
     public PlayButtonController pbc;
     public GravityManager gm;
     public bool isSliderChanged;
+    public bool enableDemoMaps;
 
+    //Initialize vars and managers
     void Start()
     {
         PropertiesPanel.SetActive(true);
@@ -29,6 +31,7 @@ public class PlayingManager : MonoBehaviour
 
     private void Update()
     {
+        //Hotkey implementation
         if (Input.GetKeyUp(KeyCode.P))
         {
             TogglePlayPause();
@@ -37,6 +40,7 @@ public class PlayingManager : MonoBehaviour
         {
             ToggleGlobalSettingsWindow();
         }
+        //PropertiesPanel enable if object selected
         if (Selected == null)
         {
             PropertiesPanel.SetActive(false);
@@ -46,19 +50,14 @@ public class PlayingManager : MonoBehaviour
             PropertiesPanel.SetActive(true);
         }
         //Demo presets
-        if (Input.GetKeyUp("z"))
+        if (enableDemoMaps == true)
         {
-            Debug.Log("Tried to load scene 1");
-            SceneManager.LoadScene("Main");
-        }
-        if (Input.GetKeyUp("x"))
-        {
-            Debug.Log("Tried to load scene 2");
-            SceneManager.LoadScene("Other");
-        }
-        if (Input.GetKeyUp("c"))
-        {
-
+            if (Input.GetKeyUp("z"))
+                SceneManager.LoadScene("Main");
+            if (Input.GetKeyUp("x"))
+                SceneManager.LoadScene("Other");
+            if (Input.GetKeyUp("c"))
+                SceneManager.LoadScene("Balls");
         }
     }
 
@@ -79,6 +78,7 @@ public class PlayingManager : MonoBehaviour
             IsPlaying = !IsPlaying;
         }
     }
+
     public void ReactToPropertyChange()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
