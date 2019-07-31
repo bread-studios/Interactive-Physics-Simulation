@@ -8265,6 +8265,7 @@ MonoBehaviour:
   pbc: {fileID: 2141287455}
   gm: {fileID: 1515896816}
   isSliderChanged: 0
+  enableDemoMaps: 1
   IsPlaying: 0
   GSPIsEnabled: 0
 --- !u!4 &1515896815
