@@ -10,7 +10,7 @@ In this file you will find:
 
 ----------------------
 
-# TL-DR
+# I don't have time to read all of your instructions, but I still wanna play your sim
 If you don't feel like reading an entire essay's worth of instructions, here's the bare basics that you need to know to use our program.
 
 Move around with W, S, A, D, and use space and shift to move up and down.
