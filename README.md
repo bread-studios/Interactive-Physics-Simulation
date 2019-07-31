@@ -1,6 +1,6 @@
-# Interactive Physics Simulation
+# Physdom README
 
-Thank you for using our super cool interactive physics simulation, made and shipped to you lovingly by four greasy high-schoolers: David Zager, Muyang Yan, Austyn Ngo, and Greggory Hickman.
+Thank you for using our super cool interactive physics simulation, **Physdom** made and shipped to you lovingly by four greasy high-schoolers: David Zager, Muyang Yan, Austyn Ngo, and Greggory Hickman.
 
 In this file you will find:
 - Detailed instructions on how to use our program
@@ -48,6 +48,8 @@ In our program, there are two types of properties: local, and global. Local prop
 **Local:** 
 The following can be viewed on the Properties Panel.
 
+- Reset Local Object - In the top right of the Properties Panel (see Properties Panel) you will find a reset button. When clicked, the object is reset back to its original position, velocity, rigidity, etc. that it had when it was first created. Effect is immediate.
+
 - Position - The Position property shows the coordinate position (x,y,z) of the selected object. Can be changed by editing the fields, effect is immediate.
 
 - Rotation - The Rotation property shows the amount that the selected object is rotated by. Can be changed by editing the fields, effect is immediate.
@@ -70,6 +72,13 @@ The following can be viewed on the Properties Panel.
 The following can be viewed on the Global Settings Panel.
 
 - Gravity Vector (Hotkey: G) - The gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before. Can be changed by moving the slider, effect is immediate.
+
+-----------------------
+
+# Demo Only
+In the demo version of Physdom, we have some addition features meant to show off the applications and mechanics of our program. This section shows how to use them.
+
+- Pre-Made Maps (Hotkeys: Z, X, C) - By pressing each of the hotkeys, the user may switch in between the three pre-made environments that we have made to show off how our program handles different situations. This is a temporary feature, and will be removed upon launch.
 
 -----------------------
 
