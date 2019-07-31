@@ -13,19 +13,19 @@ In this file you will find:
 # I don't have time to read all of your instructions, but I still wanna play your sim
 If you don't feel like reading an entire essay's worth of instructions, here's the bare basics that you need to know to use our program.
 
-Move around with W, S, A, D, and use space and shift to move up and down.
+-Move around with W, S, A, D, and use space and shift to move up and down.
 
-Hold right click and move mouse to look around.
+-Hold right click and move mouse to look around.
 
-You can click on stuff with the cursor and edit their properties on the window that pops up.
+-You can click on stuff with the cursor and edit their properties on the window that pops up.
 
-Press "p" to pause/unpause.
+-Press "p" to pause/unpause.
 
-Press "q" to open global settings.
+-Press "q" to open global settings.
 
-Press "g" to reverse gravity, although you get more precise gravity control from the aforementioned "q" menu.
+-Press "g" to reverse gravity, although you get more precise gravity control from the aforementioned "q" menu.
 
-Press "z", "x", and "c" to see all of the different map presets.
+-Press "z", "x", and "c" to see all of the different map presets.
 
 ----------------------
 
