@@ -88,8 +88,6 @@ public class PlayingManager : MonoBehaviour
 
     public void ToggleGlobalSettingsWindow()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        rbm = Selected.GetComponent<RigidBodyManager>();
         GSPIsEnabled = !GSPIsEnabled;
         GlobOptionPanel.SetActive(GSPIsEnabled);
     }
