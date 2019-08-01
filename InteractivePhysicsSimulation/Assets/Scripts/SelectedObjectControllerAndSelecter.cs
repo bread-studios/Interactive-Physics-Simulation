@@ -49,7 +49,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject elasticitySlider;
     private GameObject elasticityInput;
     public GameObject staticToggle;
-
+    
     private void Awake() { 
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();

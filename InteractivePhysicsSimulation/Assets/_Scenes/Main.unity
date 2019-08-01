@@ -273,7 +273,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -308,7 +308,7 @@ Prefab:
     - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
         type: 2}
       propertyPath: rsPos.z
-      value: 1.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070721296700812, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4545,7 +4545,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4590,7 +4590,7 @@ Prefab:
     - target: {fileID: 114403311075600430, guid: e06be632ea950354ebf701b605a91291,
         type: 2}
       propertyPath: rsPos.z
-      value: 2
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4752926852536184, guid: e06be632ea950354ebf701b605a91291, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7972,9 +7972,9 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -7993,7 +7993,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -8485,6 +8485,7 @@ GameObject:
   - component: {fileID: 1515896814}
   - component: {fileID: 1515896816}
   - component: {fileID: 1515896817}
+  - component: {fileID: 1515896818}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -8557,6 +8558,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 1515896813}
+--- !u!114 &1515896818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515896813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5176d6a0f27f504fb3058eebc3b0d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541789675
 GameObject:
   m_ObjectHideFlags: 0
@@ -9014,7 +9026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.960938, y: -24.960999}
+  m_AnchoredPosition: {x: -25, y: -25}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644185255
@@ -9088,7 +9100,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 45d29cd906144e747a03f3c447be8f24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0a190fe7b6c8f44f8b3a913e9e81226, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

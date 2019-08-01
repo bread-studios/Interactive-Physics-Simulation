@@ -922,13 +922,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 138619144}
-  m_LocalRotation: {x: 0.05516273, y: 0.8985542, z: -0.11829687, w: 0.41900265}
-  m_LocalPosition: {x: -9, y: 7, z: 9}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15, y: 130, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &138619149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,12 +2859,12 @@ Prefab:
     - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
       propertyPath: trueBounce
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
       propertyPath: startBounce
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
@@ -7728,9 +7728,9 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -8241,6 +8241,7 @@ GameObject:
   - component: {fileID: 1515896814}
   - component: {fileID: 1515896816}
   - component: {fileID: 1515896817}
+  - component: {fileID: 1515896818}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -8313,6 +8314,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 1515896813}
+--- !u!114 &1515896818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515896813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5176d6a0f27f504fb3058eebc3b0d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541789675
 GameObject:
   m_ObjectHideFlags: 0
@@ -9388,12 +9400,12 @@ Prefab:
     - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
         type: 2}
       propertyPath: trueBounce
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
         type: 2}
       propertyPath: startBounce
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
