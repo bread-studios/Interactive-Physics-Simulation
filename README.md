@@ -1,12 +1,31 @@
 # Physdom README
 
-Thank you for using our super cool interactive physics simulation, **Physdom**, made and shipped to you lovingly by three greasy high-schoolers: Muyang Yan, Austyn Ngo, Greggory Hickman, with help from David Zager and Nathan Pang.
+Thank you for using our super cool interactive physics simulation, **Physdom**, made and shipped to you lovingly by three greasy high-schoolers: Muyang Yan, Austyn Ngo, and Greggory Hickman, with help from David Zager and Nathan Pang.
 
 **Physdom** is a Physics Simulation Program made with Unity's physics engine created to help physics students understand several basic physics concepts relating to forces and acceleration. In it, the user may interact with objects such as cubes, spheres, and ramps, and watch as they move and collide with other objects in the simulated environment. The user may edit several properties about the simulated environment, and the objects themselves.
 
 In this file you will find:
 - Detailed instructions on how to use our program
 - Motivational life advice
+
+----------------------
+
+# I don't have time to read all of your instructions, but I still wanna play your sim
+If you don't feel like reading an entire essay's worth of instructions, here's the bare basics that you need to know to use our program.
+
+- Move around with W, S, A, D, and use space and shift to move up and down.
+
+- Hold right click and move mouse to look around.
+
+- You can click on stuff with the cursor and edit their properties on the window that pops up.
+
+- Press "p" to pause/unpause.
+
+- Press "q" to open global settings.
+
+- Press "g" to reverse gravity, although you get more precise gravity control from the aforementioned "q" menu.
+
+- Press "z", "x", and "c" to see all of the different map presets.
 
 ----------------------
 
@@ -23,7 +42,7 @@ Our program uses simple, easy to remember controls. This section will explain wh
 
 - SPACE - Move directly upwards
 
-- SHIFT - Move Directly downwards
+- SHIFT - Move directly downwards
 
 - RIGHT MOUSE BUTTON - Hold and move the mouse to look around
 
@@ -77,8 +96,8 @@ The following can be viewed on the Global Settings Panel.
 
 -----------------------
 
-# Demo Only
-In the demo version of Physdom, we have some addition features meant to show off the applications and mechanics of our program. This section shows how to use them.
+# Demo
+In the demo version of Physdom, we have some additional features meant to show off the applications and mechanics of our program. This section shows what they are and how to use them.
 
 - Pre-Made Maps (Hotkeys: Z, X, C) - By pressing each of the hotkeys, the user may switch in between the three pre-made environments that we have made to show off how our program handles different situations. This is a temporary feature, and will be removed upon launch.
 
@@ -89,6 +108,222 @@ In the demo version of Physdom, we have some addition features meant to show off
 We know that our program is an endless beacon of utility and entertainment, but remember to take a break every once in a while. It's important to go outside, have some fun outside of our program, and to drink plently of water.
 
 Alright, that's it. Have fun!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
