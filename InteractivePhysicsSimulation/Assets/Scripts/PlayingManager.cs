@@ -72,14 +72,12 @@ public class PlayingManager : MonoBehaviour
         Debug.Log("Toggle");
         if (gm.isTimerEnabled)
         {
-            Debug.Log("1");
             StopCoroutine("Waiter");
             IsPlaying = !IsPlaying;
             StartCoroutine("Waiter");
         }
         else
         {
-            Debug.Log("2");
             IsPlaying = !IsPlaying;
         }
     }
