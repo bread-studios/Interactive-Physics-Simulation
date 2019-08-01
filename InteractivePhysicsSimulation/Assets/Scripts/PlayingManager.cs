@@ -18,7 +18,7 @@ public class PlayingManager : MonoBehaviour
     //Initialize vars and managers
     void Start()
     {
-        PropertiesPanel.SetActive(true);
+        PropertiesPanel.SetActive(false);
         GlobOptionPanel.SetActive(false);
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         rbm = Selected.GetComponent<RigidBodyManager>();
@@ -31,24 +31,6 @@ public class PlayingManager : MonoBehaviour
 
     private void Update()
     {
-        //Hotkey implementation
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            TogglePlayPause();
-        }
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            ToggleGlobalSettingsWindow();
-        }
-        //PropertiesPanel enable if object selected
-        if (Selected == null)
-        {
-            PropertiesPanel.SetActive(false);
-        }
-        else
-        {
-            PropertiesPanel.SetActive(true);
-        }
         //Demo presets
         if (enableDemoMaps == true)
         {
@@ -59,6 +41,29 @@ public class PlayingManager : MonoBehaviour
             if (Input.GetKeyUp("c"))
                 SceneManager.LoadScene("Balls");
         }
+        //Hotkey implementation
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            TogglePlayPause();
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            ToggleGlobalSettingsWindow();
+        }
+        //PropertiesPanel enable if object selected
+        
+        if (Selected == null)
+        {
+            PropertiesPanel.SetActive(false);
+        }
+        else
+        {
+            socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+            socas.enabled = true;
+            PropertiesPanel.SetActive(true);
+        }
+
+
     }
 
 
@@ -83,8 +88,7 @@ public class PlayingManager : MonoBehaviour
     {
 
 
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        socas.enabled = true;
+        
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.KidsReactToPropertyDamage();
     }
@@ -97,32 +101,24 @@ public class PlayingManager : MonoBehaviour
 
     public void ToggleStatic()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         rbm.isStatic = !rbm.isStatic;
     }
 
     public void SliderChanged()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = true;
     }
 
     public void NotSliderChanged()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = false;
     }
 
     public void reset()
     {
-        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
-        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.reset();
     }

@@ -118,10 +118,15 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.bounciness = trueBounce * bounceFactor;
         butter.material.bounceCombine = PhysicMaterialCombine.Average;
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
-        if (pm.Selected == gameObject && pm.IsPlaying == true)
+        if (pm.Selected == gameObject)
         {
-            Debug.Log("selected and is playing");
-            Compile();
+            if (pm.IsPlaying == true) { 
+                Compile();
+            }
+        }
+        else
+        {
+            enabled = false;
         }
     }
 
