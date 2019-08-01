@@ -2662,7 +2662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.960938, y: -24.960999}
+  m_AnchoredPosition: {x: -24.960938, y: -24.960938}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &548104683
@@ -8533,7 +8533,7 @@ Prefab:
     - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
       propertyPath: rsVel.z
-      value: -200
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 114679397117360482, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
         type: 2}
@@ -8550,6 +8550,11 @@ Prefab:
       propertyPath: startMass
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
+        type: 2}
+      propertyPath: staticToggle
+      value: 
+      objectReference: {fileID: 255276638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
   m_IsPrefabParent: 0
@@ -9181,6 +9186,16 @@ Prefab:
       propertyPath: rsPos.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
+        type: 2}
+      propertyPath: rsVel.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
+        type: 2}
+      propertyPath: staticToggle
+      value: 
+      objectReference: {fileID: 255276638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
   m_IsPrefabParent: 0

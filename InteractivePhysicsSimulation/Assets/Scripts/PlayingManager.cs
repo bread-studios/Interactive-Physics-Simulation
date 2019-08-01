@@ -81,7 +81,10 @@ public class PlayingManager : MonoBehaviour
 
     public void ReactToPropertyChange()
     {
+
+
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.KidsReactToPropertyDamage();
     }
@@ -95,6 +98,7 @@ public class PlayingManager : MonoBehaviour
     public void ToggleStatic()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         rbm.isStatic = !rbm.isStatic;
     }
@@ -102,6 +106,7 @@ public class PlayingManager : MonoBehaviour
     public void SliderChanged()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = true;
     }
@@ -109,6 +114,7 @@ public class PlayingManager : MonoBehaviour
     public void NotSliderChanged()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         isSliderChanged = false;
     }
@@ -116,6 +122,7 @@ public class PlayingManager : MonoBehaviour
     public void reset()
     {
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
+        socas.enabled = true;
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.reset();
     }

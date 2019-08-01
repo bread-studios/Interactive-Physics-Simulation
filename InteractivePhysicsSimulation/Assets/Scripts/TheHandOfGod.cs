@@ -27,7 +27,7 @@ public class TheHandOfGod : MonoBehaviour {
 
     public void ThrowSpawnEgg()
     {
-        Instantiate(Resources.Load("Prefabs/"+"Cube"),Vector3.zero,Quaternion.identity);
+        Instantiate(Resources.Load("Prefabs/"+"Cube"), Vector3.zero, Quaternion.identity);
 
     }
 }

@@ -51,6 +51,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     public GameObject staticToggle;
     
     private void Awake() { 
+        
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -119,6 +120,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         if (pm.Selected == gameObject && pm.IsPlaying == true)
         {
+            Debug.Log("selected and is playing");
             Compile();
         }
     }
