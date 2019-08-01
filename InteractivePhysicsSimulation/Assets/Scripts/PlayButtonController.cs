@@ -28,9 +28,22 @@ public class PlayButtonController : MonoBehaviour , IPointerClickHandler , IPoin
         img.sprite = ps;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    void Update ()
     {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            if (img.sprite == ps)
+            {
+                img.sprite = ss;
+            }
+            else
+            {
+                img.sprite = ps;
+            }
+        }
+    }
 
+    public void OnPointerClick(PointerEventData eventData) {
         if (img.sprite == ps)
         {
             img.sprite = ss;
