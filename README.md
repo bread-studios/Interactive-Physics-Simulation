@@ -27,6 +27,8 @@ If you don't feel like reading an entire essay's worth of instructions, here's t
 
 - Press "z", "x", and "c" to see all of the different map presets.
 
+- Click icon in the bottom left to create new objects.
+
 ----------------------
 
 # Basic Movement and Utilization
@@ -61,6 +63,8 @@ There are several different mechanics in our program for you, the user, to utili
 
 - Play/Pause Button (Hotkey: P) - In the bottom right corner of your screen, there is a play button that, when clicked, will play or pause the environment until the button is clicked again.
 
+- Create Tool - In the bottom left corner of your screen, the is a tool button that, when clicked, will bring up a panel that allows the user to create a new object.
+
 -----------------------
 
 # Properties
@@ -88,6 +92,8 @@ The following can be viewed on the Properties Panel.
 - Elasticity - The Elasticity property shows the coefficcient of bounciness of an object, effectively showing how much vertical energy is conserved when contact with an object is made. It ranges from zero (0) to one (1), 1 meaning that it will bounce just as high each time on a rigid, flat surface, 0 meaning that it will come to a dead stop upon hitting a flat surface. Can be changed by moving the slider, effect is immediate.
 
 - Static Checkbox - The Static property shows whether or not the object is able to move. Enabling will prevent all movement on the part of that object, although other non-static objects may still interact with it. Can be changed by ticking the box, effect is immediate.
+
+- Delete Local Object - In the bottom right of the Properties Panel (see Properties Panel) you wil find a delete button. When clicked, the object will disappear, never to be seen again. Effect is immediate.
 
 **Global:** 
 The following can be viewed on the Global Settings Panel.
