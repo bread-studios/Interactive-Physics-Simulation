@@ -144,6 +144,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
                 pm.Selected = gameObject;
                 rd.material = SelectedMat;
                 StartCoroutine("Waiter");
+                Manager.GetComponent<SoundManager>().tapSound();
                 Compile();
             }
         }
@@ -219,6 +220,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
 
     public void delete()
     {
+        Manager.GetComponent<SoundManager>().touchSound();
         Destroy(gameObject);
     }
 

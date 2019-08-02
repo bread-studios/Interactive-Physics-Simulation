@@ -39,6 +39,7 @@ public class PlayButtonController : MonoBehaviour , IPointerClickHandler , IPoin
         {
             img.sprite = ps;
         }
+        m.GetComponent<SoundManager>().increaseSound();
         pm.TogglePlayPause();
     }
 

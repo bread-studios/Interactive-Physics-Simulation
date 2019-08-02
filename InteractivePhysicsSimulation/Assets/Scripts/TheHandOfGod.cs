@@ -70,6 +70,7 @@ public class TheHandOfGod : MonoBehaviour {
         Debug.Log(prefab);
         p = new Vector3(float.Parse(cx.GetComponent<InputField>().text), float.Parse(cy.GetComponent<InputField>().text), float.Parse(cz.GetComponent<InputField>().text));
         var tmp = Instantiate(Resources.Load("Prefabs/"+ prefab)) as GameObject;
+        GetComponent<SoundManager>().collectedSound();
         tmp.GetComponent<SelectedObjectControllerAndSelecter>().rsPos = p;
 
     }
