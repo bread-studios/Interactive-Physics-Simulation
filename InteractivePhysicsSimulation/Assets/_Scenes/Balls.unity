@@ -1021,7 +1021,7 @@ Transform:
   m_LocalScale: {x: 0.6259781, y: 0.6259781, z: 0.6259781}
   m_Children: []
   m_Father: {fileID: 645913747}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &222586067
 MonoBehaviour:
@@ -2658,7 +2658,7 @@ RectTransform:
   m_LocalScale: {x: 0.80577224, y: 0.80577224, z: 0.80577224}
   m_Children: []
   m_Father: {fileID: 645913747}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3885,9 +3885,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 222586066}
   - {fileID: 548104682}
   - {fileID: 1121140774}
-  - {fileID: 222586066}
   - {fileID: 18506965}
   - {fileID: 750836806}
   m_Father: {fileID: 1428723656}
@@ -6276,7 +6276,7 @@ RectTransform:
   - {fileID: 315813463}
   - {fileID: 1758438709}
   m_Father: {fileID: 645913747}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8555,6 +8555,18 @@ Prefab:
       propertyPath: staticToggle
       value: 
       objectReference: {fileID: 255276638}
+    - target: {fileID: 4756152173290768, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756152173290768, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756152173290768, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
   m_IsPrefabParent: 0
@@ -8608,6 +8620,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4288845470634288, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
       propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288845470634288, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
+      propertyPath: m_LocalScale.x
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

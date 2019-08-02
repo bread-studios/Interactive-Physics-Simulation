@@ -18,8 +18,8 @@ public class PlayingManager : MonoBehaviour
     //Initialize vars and managers
     void Start()
     {
-        PropertiesPanel.SetActive(false);
-        GlobOptionPanel.SetActive(false);
+        PropertiesPanel.SetActive(true);
+        GlobOptionPanel.SetActive(true);
         socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         rbm = Selected.GetComponent<RigidBodyManager>();
         gm = gameObject.GetComponent<GravityManager>();
@@ -54,16 +54,22 @@ public class PlayingManager : MonoBehaviour
         
         if (Selected == null)
         {
-            PropertiesPanel.SetActive(false);
+            PropertiesPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(-200, 0 ,0);
         }
         else
         {
             socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
             socas.enabled = true;
-            PropertiesPanel.SetActive(true);
+            PropertiesPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
         }
-
-
+        if (GSPIsEnabled)
+        {
+            GlobOptionPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            GlobOptionPanel.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 9999, 0);
+        }
     }
 
 
@@ -84,9 +90,7 @@ public class PlayingManager : MonoBehaviour
 
     public void ReactToPropertyChange()
     {
-
-
-        
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.KidsReactToPropertyDamage();
     }
@@ -94,7 +98,14 @@ public class PlayingManager : MonoBehaviour
     public void ToggleGlobalSettingsWindow()
     {
         GSPIsEnabled = !GSPIsEnabled;
-        GlobOptionPanel.SetActive(GSPIsEnabled);
+        if (GSPIsEnabled)
+        {
+            GlobOptionPanel.transform.position = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            GlobOptionPanel.transform.position = new Vector3(0, 9999, 0);
+        }
     }
 
     public void ToggleStatic()

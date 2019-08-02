@@ -18,16 +18,16 @@ public class TheHandOfGod : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyUp("h"))
         {
-            ThrowSpawnEgg();
+            ThrowSpawnEgg("Cube",new Vector3(0,0,0));
         }
 	}
 
 
 
 
-    public void ThrowSpawnEgg()
+    public void ThrowSpawnEgg(string prefab, Vector3 position)
     {
-        Instantiate(Resources.Load("Prefabs/"+"Cube"), Vector3.zero, Quaternion.identity);
+        Instantiate(Resources.Load("Prefabs/"+ prefab), position, Quaternion.identity);
 
     }
 }

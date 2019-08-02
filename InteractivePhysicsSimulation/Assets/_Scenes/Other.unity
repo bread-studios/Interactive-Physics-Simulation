@@ -2866,6 +2866,11 @@ Prefab:
       propertyPath: startBounce
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 114357122685199514, guid: 8a95d1236f56da74a936ae71c0a2a2b7,
+        type: 2}
+      propertyPath: rsVel.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a95d1236f56da74a936ae71c0a2a2b7, type: 2}
   m_IsPrefabParent: 0
@@ -5710,7 +5715,7 @@ RectTransform:
   - {fileID: 782522569}
   - {fileID: 84656135}
   m_Father: {fileID: 1375256969}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7503,7 +7508,7 @@ Transform:
   m_LocalScale: {x: 0.6259781, y: 0.6259781, z: 0.6259781}
   m_Children: []
   m_Father: {fileID: 1375256969}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310575577
 GameObject:
@@ -7768,9 +7773,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1309240897}
   - {fileID: 1644185254}
   - {fileID: 959914652}
-  - {fileID: 1309240897}
   - {fileID: 2141287454}
   - {fileID: 1973959450}
   m_Father: {fileID: 1329712568}
@@ -8852,7 +8857,7 @@ RectTransform:
   m_LocalScale: {x: 0.80577224, y: 0.80577224, z: 0.80577224}
   m_Children: []
   m_Father: {fileID: 1375256969}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -8930,7 +8935,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 45d29cd906144e747a03f3c447be8f24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0a190fe7b6c8f44f8b3a913e9e81226, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9362,7 +9367,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4288845470634288, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114336119546575328, guid: 97b7eb8004dd5504aa86b98384515b04,
         type: 2}
@@ -9406,6 +9411,10 @@ Prefab:
         type: 2}
       propertyPath: startBounce
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288845470634288, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}

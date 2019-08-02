@@ -50,8 +50,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     private GameObject elasticityInput;
     public GameObject staticToggle;
     
-    private void Awake() { 
-        
+    private void Start() {
+    
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -70,7 +70,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.bounciness = trueBounce * bounceFactor;
         butter.material.bounciness = trueBounce * bounceFactor;
         trueBounce = butter.material.bounciness / bounceFactor;
-
+        
         posX = GameObject.Find("PositionX");
         posY = GameObject.Find("PositionY");
         posZ = GameObject.Find("PositionZ");
@@ -120,7 +120,8 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         butter.material.frictionCombine = PhysicMaterialCombine.Average;
         if (pm.Selected == gameObject)
         {
-            if (pm.IsPlaying == true) { 
+            if (pm.IsPlaying == true)
+            {
                 Compile();
             }
         }
@@ -179,7 +180,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         staticToggle.GetComponent<Toggle>().isOn = rbm.isStatic;
     }
 
-    public void KidsReactToPropertyDamage() //reacting to the user changing the properties (kids react to losing david)
+    public void KidsReactToPropertyDamage() //reacting to the user changing the properties
     {
         if (pm.Selected == gameObject)
         {

@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895198296184654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,13 +114,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trueBounce: 0
-  startBounce: 0.6
+  startBounce: 0
   startDyFric: 0
   startStFric: 0
-  startMass: 5
-  rsPos: {x: 0, y: 0.5, z: -5}
+  startMass: 1
+  rsPos: {x: 0, y: 0, z: 0}
   rsRot: {x: 0, y: 0, z: 0}
-  rsVel: {x: 0, y: 0, z: 200}
+  rsVel: {x: 0, y: 0, z: 0}
   rsAngVel: {x: 0, y: 0, z: 0}
   staticToggle: {fileID: 0}
 --- !u!114 &114679397117360482
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e30e9adf08422b49931de7b18b0b148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 5
-  vel: {x: 0, y: 0, z: 200}
+  mass: 1
+  vel: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0}
   acc: {x: 0, y: 0, z: 0}
   isStatic: 0
