@@ -31,6 +31,10 @@ public class PlayingManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         //Demo presets
         if (enableDemoMaps == true)
         {
@@ -130,6 +134,12 @@ public class PlayingManager : MonoBehaviour
     {
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.reset();
+    }
+
+    public void delete()
+    {
+        rbm = Selected.GetComponent<RigidBodyManager>();
+        socas.delete();
     }
 
     public IEnumerator Waiter()

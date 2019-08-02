@@ -51,7 +51,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
     public GameObject staticToggle;
     
     private void Start() {
-    
+
         Manager = GameObject.FindWithTag("Manager");
         pm = Manager.GetComponent<PlayingManager>();
         rd = GetComponent<Renderer>();
@@ -215,6 +215,11 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         rbm.rot = rsAngVel;
         rbm.vel = rsVel;
         Compile();
+    }
+
+    public void delete()
+    {
+        Destroy(gameObject);
     }
 
     IEnumerator Waiter()

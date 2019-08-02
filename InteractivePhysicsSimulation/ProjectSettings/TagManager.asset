@@ -10,6 +10,7 @@ TagManager:
   - Canvas
   - GlobOptionPanel
   - GridMaker
+  - ChooseObject
   layers:
   - Default
   - TransparentFX
