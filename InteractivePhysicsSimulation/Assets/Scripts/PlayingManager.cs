@@ -132,8 +132,18 @@ public class PlayingManager : MonoBehaviour
 
     public void reset()
     {
+        socas = Selected.GetComponent<SelectedObjectControllerAndSelecter>();
         rbm = Selected.GetComponent<RigidBodyManager>();
         socas.reset();
+    }
+
+    public void resetAll()
+    {
+        var tmp = GameObject.FindGameObjectsWithTag("Object");
+        for (int i = 0; i < tmp.Length; i++)
+        {
+            tmp[i].GetComponent<SelectedObjectControllerAndSelecter>().reset();
+        }
     }
 
     public void delete()

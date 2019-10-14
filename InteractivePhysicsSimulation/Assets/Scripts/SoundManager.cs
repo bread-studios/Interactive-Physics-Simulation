@@ -8,8 +8,9 @@ public class SoundManager : MonoBehaviour {
     public AudioClip tap;
     public AudioClip touch;
     public AudioClip dweep;
+    public AudioClip dweep2;
     public AudioClip increase;
-    public AudioClip collected;
+    public AudioClip collected;     
 
     void Start () {
         s = GetComponent<AudioSource>();
@@ -40,7 +41,11 @@ public class SoundManager : MonoBehaviour {
         s.clip = collected;
         s.Play();
     }
-
+    public void dweepSound2()
+    {
+        s.clip = dweep2;
+        s.Play();
+    }
 
     /*void Update () {
 		if (Input.GetMouseButtonDown(0))
