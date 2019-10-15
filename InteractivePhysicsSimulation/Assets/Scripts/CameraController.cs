@@ -108,4 +108,9 @@ public class CameraController : MonoBehaviour
             cameraSpeed = cameraStartSpeed;
         }
     }
+
+    void TopView()
+    {
+        
+    }
 }
