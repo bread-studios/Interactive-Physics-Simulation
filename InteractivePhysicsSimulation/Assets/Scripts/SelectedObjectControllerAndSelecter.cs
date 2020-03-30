@@ -131,7 +131,7 @@ public class SelectedObjectControllerAndSelecter : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (!hdui.isGUIHighlighted)
         {

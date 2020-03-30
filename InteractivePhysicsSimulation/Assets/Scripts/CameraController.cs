@@ -10,11 +10,12 @@ public class CameraController : MonoBehaviour
     public float cameraAccel;
     public float cameraSpeed;
     public float maxCameraSpeed;
-    private Quaternion initRot;
-
-    float yaw = 0.0f;
-    float pitch = 0.0f;
-    float roll = 0.0f;
+    public bool isViewSpecial = false; //Is it in top view, bottom view, right, left, etc. 
+    public Vector3 FreeCamPos;
+    public Vector3 FreeCamRot;
+    public float pitch;
+    public float yaw;
+    public float roll;
 
     void Start()
     {
@@ -23,7 +24,8 @@ public class CameraController : MonoBehaviour
         {
             cameraSpeed *= -1;
         }
-        initRot = transform.rotation;
+        //initRot = transform.rotation;
+
     }
 
     // Update is called once per frame
@@ -45,12 +47,13 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-
                 yaw += mouseSensitivityHorizontal * Input.GetAxisRaw("Mouse X");
                 pitch += mouseSensitivityVertical * -Input.GetAxisRaw("Mouse Y");
                 roll = 0;
             }
-            transform.eulerAngles = new Vector3(pitch + initRot.eulerAngles.x, yaw + initRot.eulerAngles.y, roll + initRot.eulerAngles.z);
+
+            transform.eulerAngles = new Vector3(pitch, yaw, roll);
+            isViewSpecial = false;
         }
         else
         {
@@ -109,8 +112,26 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void TopView()
+    public void TopView()
     {
-        
+        if (isViewSpecial == true)
+        {
+            transform.position = FreeCamPos;
+            transform.eulerAngles = FreeCamRot;
+            pitch = FreeCamRot.z;
+            yaw = FreeCamRot.y;
+            roll = FreeCamRot.x;
+        }else{
+            isViewSpecial = true;
+            FreeCamPos = transform.position;
+            FreeCamRot = transform.eulerAngles;
+            float tmp = Mathf.Sqrt(Mathf.Pow(transform.position.x, 2)+Mathf.Pow(transform.position.y, 2)+Mathf.Pow(transform.position.z, 2));
+            transform.position = new Vector3(0,tmp,0);
+            pitch = 90;
+            yaw = 0;
+            roll = 0;
+            transform.eulerAngles = new Vector3(pitch, yaw, roll);
+        }
     }
+
 }
