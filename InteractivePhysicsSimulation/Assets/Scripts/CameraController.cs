@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public float cameraAccel;
     public float cameraSpeed;
     public float maxCameraSpeed;
-    public bool isViewSpecial = false; //Is it in top view, bottom view, right, left, etc. 
+    public string view; //top view, bottom view, left right etc.
     public Vector3 FreeCamPos;
     public Vector3 FreeCamRot;
     public float pitch;
@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
             cameraSpeed *= -1;
         }
         //initRot = transform.rotation;
-
+        view = "free";
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
             }
 
             transform.eulerAngles = new Vector3(pitch, yaw, roll);
-            isViewSpecial = false;
+            view = "free";
         }
         else
         {
@@ -112,26 +112,52 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void TopView()
+    public void ChangeView(string TargetView)
     {
-        if (isViewSpecial == true)
+        if (view == TargetView)
         {
             transform.position = FreeCamPos;
             transform.eulerAngles = FreeCamRot;
             pitch = FreeCamRot.z;
             yaw = FreeCamRot.y;
             roll = FreeCamRot.x;
+            view = "free";
         }else{
-            isViewSpecial = true;
-            FreeCamPos = transform.position;
-            FreeCamRot = transform.eulerAngles;
-            float tmp = Mathf.Sqrt(Mathf.Pow(transform.position.x, 2)+Mathf.Pow(transform.position.y, 2)+Mathf.Pow(transform.position.z, 2));
-            transform.position = new Vector3(0,tmp,0);
-            pitch = 90;
-            yaw = 0;
-            roll = 0;
+            if(view == "free")
+            {
+                FreeCamPos = transform.position;
+                FreeCamRot = transform.eulerAngles;
+            }
+            view = TargetView;
+            float dist = Mathf.Sqrt(Mathf.Pow(transform.position.x, 2)+Mathf.Pow(transform.position.y, 2)+Mathf.Pow(transform.position.z, 2));
+            switch(TargetView)
+            {
+                case "top":
+                    transform.position = new Vector3(0,dist,0);
+                    pitch = 90;
+                    yaw = 0;
+                    roll = 0;
+                    break;
+                case "bottom":
+                    transform.position = new Vector3(0,-dist,0);
+                    pitch = -90;
+                    yaw = 0;
+                    roll = 0;
+                    break;
+                case "right":
+                    transform.position = new Vector3(dist,0,0);
+                    pitch = 0;
+                    yaw = 90;
+                    roll = 0;                
+                    break;
+                case "left":
+                    transform.position = new Vector3(-dist,0,0);
+                    pitch = 0;
+                    yaw = -90;
+                    roll = 0;
+                    break;
+            }
             transform.eulerAngles = new Vector3(pitch, yaw, roll);
         }
     }
-
 }
