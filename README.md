@@ -55,7 +55,7 @@ Our program uses simple, easy to remember controls. This section will explain wh
 # Mechanics and UI
 There are several different mechanics in our program for you, the user, to utilize. This section explains how to utilize them, and how they work.
 
-- Highlighter (Hotkey: LEFT MOUSE BUTTON) - By clicking on an object in the environment with your mouse, you can select it and change some various properties native to that object (see Properties Panel).
+- Highlighter (Hotkey: LEFT MOUSE BUTTON) - By clicking on an object in the environment with your mouse, you can select it and change some various properties native to that object (see Properties Panel). You can also drag the object around while it is highlighted with your mouse.
 
 - Properties Panel - The properties panel can be found on the left side of the window in a large, dark box when an object is highlighted. Inside, there are many different properties that you can edit. It will disappear when the object is unhighlighted. More information on this panel and it's properties will be touched on in the "Properties" section.
 
@@ -99,6 +99,10 @@ The following can be viewed on the Properties Panel.
 The following can be viewed on the Global Settings Panel.
 
 - Gravity Vector (Hotkey: G) - The gravity vector property shows the direction and magnitude of gravity in vector form. The user can edit it to change the vector direction and magnitude of the gravity in the environment. The Hotkey simply swaps the direction of the gravity to be in the exact opposite direction as it was before. Can be changed by moving the slider, effect is immediate.
+
+- Timer - Automatically stop runtime X seconds after starting.
+
+- Viewport presets - Switch to perfect top, bottom, left, and right viewports.
 
 -----------------------
 
