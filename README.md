@@ -29,6 +29,8 @@ If you don't feel like reading an entire essay's worth of instructions, here's t
 
 - Click icon in the bottom left to create new objects.
 
+- Press ESC to exit.
+
 ----------------------
 
 # Basic Movement and Utilization
