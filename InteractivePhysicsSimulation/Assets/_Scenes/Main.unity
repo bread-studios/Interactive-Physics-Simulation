@@ -339,6 +339,11 @@ Prefab:
       propertyPath: rsRot.x
       value: 26.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114163255150156402, guid: 0e9f59d8cb7a69442a26da2f8646e9c3,
+        type: 2}
+      propertyPath: staticToggle
+      value: 
+      objectReference: {fileID: 1541789675}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e9f59d8cb7a69442a26da2f8646e9c3, type: 2}
   m_IsPrefabParent: 0
@@ -1273,12 +1278,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e43a75b1156fef4c8bf2881ab74999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityVertical: 5
-  mouseSensitivityHorizontal: 5
+  mouseSensitivityVertical: 1
+  mouseSensitivityHorizontal: 1
   cameraStartSpeed: 1
-  cameraAccel: 0.2
-  cameraSpeed: 1
-  maxCameraSpeed: 20
+  cameraAccel: 0.1
+  cameraSpeed: 0
+  maxCameraSpeed: 5
   view: 
   FreeCamPos: {x: 0, y: 0, z: 0}
   FreeCamRot: {x: 0, y: 0, z: 0}
@@ -1614,7 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1e8915493312c4abcf2f8600733dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridSize: 100
+  GridSize: 30
 --- !u!4 &188784506
 Transform:
   m_ObjectHideFlags: 0
@@ -1641,7 +1646,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 188784504}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6270,6 +6275,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114403311075600430, guid: e06be632ea950354ebf701b605a91291,
+        type: 2}
+      propertyPath: staticToggle
+      value: 
+      objectReference: {fileID: 1541789675}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e06be632ea950354ebf701b605a91291, type: 2}
   m_IsPrefabParent: 0
@@ -10982,7 +10992,7 @@ MonoBehaviour:
   pbc: {fileID: 2141287455}
   gm: {fileID: 1515896816}
   isSliderChanged: 0
-  enableDemoMaps: 1
+  enableDemoMaps: 0
   IsPlaying: 0
   GSPIsEnabled: 0
 --- !u!4 &1515896815
@@ -11014,7 +11024,7 @@ MonoBehaviour:
   gravY: {fileID: 38643266}
   gravZ: {fileID: 990214650}
   isTimerEnabled: 0
-  timer: {fileID: 2079780265}
+  timerInput: {fileID: 2079780265}
   timerToggle: {fileID: 867065817}
   timerTime: 0
   startGrav: {x: 0, y: -9.81, z: 0}
@@ -11041,10 +11051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5176d6a0f27f504fb3058eebc3b0d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChooseObject: {fileID: 0}
-  BuildPanelRect: {fileID: 0}
+  ChooseObject: {fileID: 213431223}
+  BuildPanelRect: {fileID: 643762340}
   isBuildOptionsOpen: 0
-  MainCamera: {fileID: 0}
+  MainCamera: {fileID: 138619144}
   creating: 0
   p: {x: 0, y: 0, z: 0}
 --- !u!82 &1515896819
@@ -12746,6 +12756,21 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
+        type: 2}
+      propertyPath: staticToggle
+      value: 
+      objectReference: {fileID: 1541789675}
+    - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
+        type: 2}
+      propertyPath: startDyFric
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155645803899322, guid: 97b7eb8004dd5504aa86b98384515b04,
+        type: 2}
+      propertyPath: startStFric
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97b7eb8004dd5504aa86b98384515b04, type: 2}
   m_IsPrefabParent: 0
@@ -13850,18 +13875,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ReactToPropertyChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:

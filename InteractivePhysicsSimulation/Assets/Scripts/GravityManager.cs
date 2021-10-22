@@ -15,7 +15,7 @@ public class GravityManager : MonoBehaviour
 
     public bool isTimerEnabled;
 
-    public GameObject timer;
+    public GameObject timerInput;
     public GameObject timerToggle;
     public float timerTime;
 
@@ -68,7 +68,7 @@ public class GravityManager : MonoBehaviour
     {
         if (isTimerEnabled) //this is line 69
         {
-            timerTime = float.Parse(timer.GetComponent<InputField>().text);
+            timerTime = float.Parse(timerInput.GetComponent<InputField>().text);
         }
         direction = upperLimitVector(10000, new Vector3(float.Parse(gravX.GetComponent<InputField>().text),
             float.Parse(gravY.GetComponent<InputField>().text),

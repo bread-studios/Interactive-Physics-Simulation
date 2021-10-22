@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour {
 	public ArrayList ActionList;
-	public void LogEvent(string event){
+	//public void LogEvent(string event){
 		//ActionList.Add(event);
-	}
+	//}
 		
 }
